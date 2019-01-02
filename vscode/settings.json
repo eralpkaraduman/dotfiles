@@ -19,13 +19,13 @@
 	"workbench.iconTheme": "vscode-icons",
 	"vsicons.dontShowNewVersionMessage": true,
 	"javascript.validate.enable": false,
-	"auto-close-tag.SublimeText3Mode": true,
 	"editor.minimap.enabled": false,
 	"editor.roundedSelection": true,
 	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
 	"editor.colorDecorators": true,
 	"editor.renderWhitespace": "all",
-  "editor.detectIndentation": true,
+	"auto-close-tag.SublimeText3Mode": true,
+	"editor.detectIndentation": true,
 	"editor.formatOnPaste": true,
 	"atomKeymap.promptV3Features": true,
 	"editor.multiCursorModifier": "alt",
@@ -35,7 +35,7 @@
 	"workbench.colorCustomizations": {},
 	"editor.insertSpaces": true,
 	"extensions.ignoreRecommendations": false,
-	"diffEditor.ignoreTrimWhitespace": false,
+	"diffEditor.ignoreTrimWhitespace": true,
 	"telemetry.enableCrashReporter": true,
 	"telemetry.enableTelemetry": true,
 	"csharp.format.enable": false,
@@ -47,4 +47,10 @@
 	"window.titleBarStyle": "custom",
 	"breadcrumbs.enabled": true,
 	"javascript.updateImportsOnFileMove.enabled": "always",
+	"workbench.statusBar.feedback.visible": false,
+	"python.jediEnabled": false,
+	"files.associations": {
+		"*.html": "html"
+	},
+	"explorer.confirmDragAndDrop": false
 }

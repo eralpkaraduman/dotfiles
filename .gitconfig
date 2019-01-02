@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Eralp Karaduman
+	email = eralpkaraduman@gmail.com
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /Users/eralp/.gitignore_global
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
