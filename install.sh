@@ -16,6 +16,9 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh >/dev/null 2>/dev/null
 echo "ok"
 
 printf "zsh..."
+rm -rf ~/.dracula-zsh-theme
+git clone --quiet https://github.com/dracula/zsh.git ~/.dracula-zsh-theme
+ln -s -f ~/.dracula-zsh-theme/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 ln -s -f ~/dotfiles/.zshrc ~/.zshrc
 echo "ok"
 
@@ -23,4 +26,6 @@ printf "vscode..."
 ln -s -f ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 echo "ok"
 
-echo "done.\nopen a new shell session to reload"
+echo "done."
+
+/bin/zsh
