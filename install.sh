@@ -13,6 +13,7 @@ rm -rf ~/.vim_runtime
 git clone --quiet https://github.com/amix/vimrc.git ~/.vim_runtime
 ln -s -f ~/dotfiles/my_configs.vim ~/.vim_runtime/my_configs.vim
 sh ~/.vim_runtime/install_awesome_vimrc.sh >/dev/null 2>/dev/null
+ln -s -f ~/dotfiles/.vimrc ~/.vimrc
 echo "ok"
 
 printf "zsh..."
