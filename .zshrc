@@ -95,9 +95,6 @@ decodeBase64 () {
   echo "$1" | base64 --decode ; echo
 }
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/usr/local/opt/mongodb@3.6/bin:$PATH"
