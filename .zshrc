@@ -51,7 +51,7 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx zsh-autosuggestions zsh-nvm)
+plugins=(git osx zsh-autosuggestions zsh-nvm tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,3 +118,5 @@ export PATH="$PATH:/usr/bin:/usr/local/bin/"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Tmux & tmux zsh plugin
+ZSH_TMUX_ITERM2=true

@@ -52,5 +52,6 @@
 	"files.associations": {
 		"*.html": "html"
 	},
-	"explorer.confirmDragAndDrop": false
+	"explorer.confirmDragAndDrop": false,
+	"git.confirmSync": false
 }
