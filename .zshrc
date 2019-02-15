@@ -120,3 +120,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Tmux & tmux zsh plugin
 ZSH_TMUX_ITERM2=true
+
+echo 'export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"' >> ~/.zshrc
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"

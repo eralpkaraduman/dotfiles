@@ -25,7 +25,7 @@
 	"editor.colorDecorators": true,
 	"editor.renderWhitespace": "all",
 	"auto-close-tag.SublimeText3Mode": true,
-	"editor.detectIndentation": true,
+	"editor.detectIndentation": false,
 	"editor.formatOnPaste": true,
 	"atomKeymap.promptV3Features": true,
 	"editor.multiCursorModifier": "alt",
@@ -53,5 +53,23 @@
 		"*.html": "html"
 	},
 	"explorer.confirmDragAndDrop": false,
-	"git.confirmSync": false
+    "git.confirmSync": false,
+    "cSpell.language": "en",
+    "cSpell.userWords": [
+        "action",
+        "all",
+        "autorenew",
+        "bugreport",
+        "changelist",
+        "changelists",
+        "changes",
+        "contentdeliveryframework",
+        "delete",
+        "dissoc",
+        "icon",
+        "nowrap",
+        "selectable",
+        "snackbar",
+        "unpubished"
+    ]
 }

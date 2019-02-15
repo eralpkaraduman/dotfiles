@@ -12,6 +12,7 @@ code --install-extension PeterJausovec.vscode-docker
 code --install-extension Poorchop.theme-darktooth
 code --install-extension QassimFarid.ejs-language-support
 code --install-extension robertohuertasm.vscode-icons
+code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension taniarascia.new-moon-vscode
 code --install-extension Tyriar.sort-lines
 code --install-extension xabikos.JavaScriptSnippets
