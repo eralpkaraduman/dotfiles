@@ -123,3 +123,10 @@ ZSH_TMUX_ITERM2=true
 
 echo 'export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"' >> ~/.zshrc
 export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"

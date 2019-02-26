@@ -1,3 +1,6 @@
+printf "bash profile..."
+ln -s -f ~/dotfiles/.bash_profile ~/.bash_profile
+
 printf "git..."
 ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s -f ~/dotfiles/.gitignore_global ~/.gitignore_global
