@@ -26,8 +26,19 @@ ln -s -f ~/.dracula-zsh-theme/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-
 ln -s -f ~/dotfiles/.zshrc ~/.zshrc
 echo "ok"
 
+printf "fira code font..."
+brew tap caskroom/fonts
+brew cask install font-fira-code
+echo "ok"
+
 printf "vscode..."
 ln -s -f ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+~/dotfiles/vscode/install_extensions.sh
+echo "ok"
+
+printf "iTerm2..."
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/dotfiles/iTerm2"
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 echo "ok"
 
 echo "done."
