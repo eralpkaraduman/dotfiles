@@ -37,6 +37,8 @@ ln -s -f ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/Use
 echo "ok"
 
 printf "iTerm2..."
+curl -L https://iterm2.com/shell_integration/zsh \
+-o ~/.iterm2_shell_integration.zsh
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/dotfiles/iTerm2"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 echo "ok"
