@@ -9,15 +9,11 @@
 	"editor.cursorStyle": "line",
 	"editor.rulers": [],
 	"explorer.openEditors.visible": 0,
-	"vsicons.projectDetection.disableDetect": true,
-	"vsicons.presets.angular": false,
-	"vsicons.presets.jsOfficial": true,
 	"window.zoomLevel": 0,
 	"explorer.autoReveal": true,
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": false,
-	"workbench.iconTheme": "vscode-icons",
-	"vsicons.dontShowNewVersionMessage": true,
+	"workbench.iconTheme": "material-icon-theme",
 	"javascript.validate.enable": false,
 	"editor.minimap.enabled": false,
 	"editor.roundedSelection": true,
@@ -43,7 +39,7 @@
 	"git.autofetch": true,
 	"javascript.referencesCodeLens.enabled": false,
 	"csharp.referencesCodeLens.enabled": false,
-	"workbench.colorTheme": "New Moon",
+	"workbench.colorTheme": "Darktooth",
 	"window.titleBarStyle": "custom",
 	"breadcrumbs.enabled": true,
 	"javascript.updateImportsOnFileMove.enabled": "always",
@@ -52,5 +48,6 @@
 	"files.associations": {
 		"*.html": "html"
 	},
-	"explorer.confirmDragAndDrop": false
+	"explorer.confirmDragAndDrop": false,
+	"material-icon-theme.opacity": 1
 }
