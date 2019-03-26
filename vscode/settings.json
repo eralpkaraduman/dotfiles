@@ -1,9 +1,8 @@
 {
 	"editor.fontFamily": "Fira Code",
-	"window.nativeTabs": false,
+	"window.nativeTabs": true,
 	"window.newWindowDimensions": "inherit",
-	"editor.fontLigatures": true,
-	"editor.fontSize": 13,
+  "editor.fontLigatures": true,
 	"editor.lineHeight": 0,
 	"editor.tabSize": 2,
 	"editor.cursorStyle": "line",
@@ -42,8 +41,8 @@
 	"git.autofetch": true,
 	"javascript.referencesCodeLens.enabled": false,
 	"csharp.referencesCodeLens.enabled": false,
-	"workbench.colorTheme": "New Moon",
-	"window.titleBarStyle": "custom",
+	"workbench.colorTheme": "One Monokai",
+	"window.titleBarStyle": "native",
 	"breadcrumbs.enabled": true,
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"workbench.statusBar.feedback.visible": false,
@@ -88,5 +87,8 @@
       "unpubished"
     ],
     "flow.enabled": false,
-    "flow.useLSP": false
+    "flow.useLSP": false,
+    "window.restoreFullscreen": true,
+    "editor.fontSize": 14,
+    "diffEditor.renderSideBySide": true
 }
