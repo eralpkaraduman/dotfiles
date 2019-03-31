@@ -90,5 +90,5 @@
     "flow.useLSP": false,
     "window.restoreFullscreen": true,
     "editor.fontSize": 14,
-    "diffEditor.renderSideBySide": true
+    "diffEditor.renderSideBySide": false
 }

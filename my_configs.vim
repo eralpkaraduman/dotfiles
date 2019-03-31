@@ -21,6 +21,7 @@ call pathogen#helptags()
 " For mouse click in NERDTree
 let g:NERDTreeMouseMode=3 
 let NERDTreeShowHidden=1
+let g:NERDTreeWinPos="left"
 
 set nocompatible
 
