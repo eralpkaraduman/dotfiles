@@ -1,5 +1,6 @@
 code --install-extension alefragnani.project-manager
 code --install-extension azemoh.one-monokai
+code --install-extension CoenraadS.bracket-pair-colorizer
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension dsznajder.es7-react-js-snippets
 code --install-extension eamodio.gitlens

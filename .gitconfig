@@ -6,6 +6,7 @@
 [core]
 	editor = /usr/bin/vim
 	excludesfile = /Users/eralp/.gitignore_global
+	autocrlf = input
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

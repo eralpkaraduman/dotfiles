@@ -3,6 +3,7 @@ set number
 set clipboard^=unnamed,unnamedplus
 set nocompatible
 set mouse=a
+set nofoldenable
 
 set directory=$HOME/.vim/swapfiles/
 set backupdir=$HOME/.vim/backupfiles/

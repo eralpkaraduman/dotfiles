@@ -50177,10 +50177,14 @@
 	<string>727 110 887 120 0 0 1680 1027 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>241 781 735 382 0 0 2560 1440 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>970 781 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>643 538 770 429 0 0 1680 1050 </string>
+	<string>643 559 937 464 0 0 1680 1027 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>127 443 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>187 575 650 452 0 0 2560 1440 </string>
+	<string>210 196 1274 809 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -50847,7 +50851,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>0AACA088-D790-49E1-A009-F0A7A650D359</string>
 	<key>NoSyncLastTipTime</key>
-	<real>575135705.07082903</real>
+	<real>577095246.14940405</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -50868,6 +50872,23 @@
 		<string>0006</string>
 		<string>0007</string>
 		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
+		<string>0015</string>
+		<string>0016</string>
+		<string>0017</string>
+		<string>0018</string>
+		<string>0019</string>
+		<string>0020</string>
+		<string>0021</string>
+		<string>0022</string>
+		<string>0023</string>
+		<string>0024</string>
+		<string>0025</string>
 	</array>
 	<key>OpenBookmark</key>
 	<false/>
@@ -50915,7 +50936,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-21T10:37:01Z</date>
+	<date>2019-04-13T10:16:22Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -50926,6 +50947,8 @@
 	<true/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>1</integer>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1553589504</real>
 	<key>Window Arrangements</key>
 	<dict>
 		<key>Default Arrangement</key>
@@ -55208,7 +55231,9 @@
 	</dict>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.7</string>
+	<string>3.2.8</string>
 </dict>
 </plist>
