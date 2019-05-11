@@ -46,6 +46,12 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/dotf
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 echo "ok"
 
+printf "Xcode..."
+# Based on https://github.com/halcyonmobile/xcode-monokai-revisited
+mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes
+ln -s -f ~/dotfiles/Xcode/Monokai\ Revisited\ Custom.xccolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/Monokai\ Revisited\ Custom.xccolortheme
+echo "ok"
+
 echo "done."
 
 /bin/zsh
