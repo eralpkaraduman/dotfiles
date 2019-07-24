@@ -129,4 +129,10 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+export FLUTTER_HOME=$HOME/Developer/flutter
+export PATH=$PATH="$PATH:$FLUTTER_HOME/bin"
+
 source ~/.iterm2_shell_integration.zsh
+
+GEM_HOME="/usr/local/lib/ruby/gems/2.6.0/bin"
+export PATH="$PATH:$GEM_HOME"

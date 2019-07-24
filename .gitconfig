@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Eralp Karaduman
-	email = eralpkaraduman@gmail.com
+	email = eralp@eralpkaraduman.com
 [core]
 	editor = /usr/bin/vim
 	excludesfile = /Users/eralp/.gitignore_global
