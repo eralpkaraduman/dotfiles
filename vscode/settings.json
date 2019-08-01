@@ -7,7 +7,7 @@
 	"editor.cursorStyle": "line",
 	"editor.rulers": [],
 	"explorer.openEditors.visible": 0,
-	"window.zoomLevel": -1,
+	"window.zoomLevel": 0,
 	"explorer.autoReveal": true,
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": false,
@@ -35,8 +35,7 @@
 	"git.autofetch": true,
 	"javascript.referencesCodeLens.enabled": false,
 	"csharp.referencesCodeLens.enabled": false,
-	"workbench.colorTheme": "New Moon",
-	"window.titleBarStyle": "native",
+  "workbench.colorTheme": "New Moon",
 	"breadcrumbs.enabled": true,
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"workbench.statusBar.feedback.visible": false,
@@ -141,5 +140,6 @@
       }
     ],
     "editor.gotoLocation.multiple": "goto",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "window.titleBarStyle": "native"
 }

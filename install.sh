@@ -22,6 +22,10 @@ chmod +x ~/.vim_runtime/install_awesome_vimrc.sh
 ln -s -f ~/dotfiles/.vimrc ~/.vimrc
 echo "ok"
 
+printf "vim dart plugin..."
+git clone git://github.com/dart-lang/dart-vim-plugin.git ~/.vim_runtime/my_plugins/dart-vim-plugin
+echo "ok"
+
 printf "zsh..."
 rm -rf ~/.dracula-zsh-theme
 git clone --quiet https://github.com/dracula/zsh.git ~/.dracula-zsh-theme
