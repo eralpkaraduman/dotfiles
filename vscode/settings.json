@@ -1,7 +1,5 @@
 {
-	"editor.fontFamily": "Fira Code",
-	"window.nativeTabs": true,
-  "window.newWindowDimensions": "inherit",
+  "editor.fontFamily": "Fira Code",
 	"editor.lineHeight": 0,
 	"editor.tabSize": 2,
 	"editor.cursorStyle": "line",
@@ -34,15 +32,15 @@
 	"editor.cursorBlinking": "phase",
 	"git.autofetch": true,
 	"javascript.referencesCodeLens.enabled": false,
-	"csharp.referencesCodeLens.enabled": false,
-  "workbench.colorTheme": "New Moon",
+  "csharp.referencesCodeLens.enabled": false,
 	"breadcrumbs.enabled": true,
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"workbench.statusBar.feedback.visible": false,
 	"python.jediEnabled": false,
 	"files.associations": {
-		"*.html": "html"
-	},
+    "*.html": "html",
+    "*.js": "javascriptreact"
+  },
 	"explorer.confirmDragAndDrop": false,
     "git.confirmSync": false,
     "cSpell.language": "en",
@@ -141,5 +139,21 @@
     ],
     "editor.gotoLocation.multiple": "goto",
     "workbench.iconTheme": "material-icon-theme",
-    "window.titleBarStyle": "native"
+    "window.restoreWindows": "none",
+    "window.openFoldersInNewWindow": "on",
+    "search.maintainFileSearchCache": true,
+    "search.showLineNumbers": true,
+    "workbench.colorTheme": "Monokai",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[scss]": {
+      "editor.defaultFormatter": "sasa.vscode-sass-format"
+    }
 }

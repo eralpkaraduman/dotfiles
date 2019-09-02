@@ -136,3 +136,6 @@ source ~/.iterm2_shell_integration.zsh
 
 GEM_HOME="/usr/local/lib/ruby/gems/2.6.0/bin"
 export PATH="$PATH:$GEM_HOME"
+
+# Yle Aws Tools
+export PATH="$PATH:/Users/eralp/Projects/Yle/yle-aws-tools/bin"
