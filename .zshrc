@@ -139,3 +139,8 @@ export PATH="$PATH:$GEM_HOME"
 
 # Yle Aws Tools
 export PATH="$PATH:/Users/eralp/Projects/Yle/yle-aws-tools/bin"
+
+# Source chtf
+if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
+    source "/usr/local/share/chtf/chtf.sh"
+fi

@@ -1,8 +1,7 @@
 {
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "Input",
 	"editor.lineHeight": 0,
-	"editor.tabSize": 2,
-	"editor.cursorStyle": "line",
+  "editor.tabSize": 2,
 	"editor.rulers": [],
 	"explorer.openEditors.visible": 0,
 	"window.zoomLevel": 0,
@@ -28,8 +27,7 @@
 	"diffEditor.ignoreTrimWhitespace": true,
 	"telemetry.enableCrashReporter": true,
 	"telemetry.enableTelemetry": true,
-	"csharp.format.enable": false,
-	"editor.cursorBlinking": "phase",
+  "csharp.format.enable": false,
 	"git.autofetch": true,
 	"javascript.referencesCodeLens.enabled": false,
   "csharp.referencesCodeLens.enabled": false,
@@ -143,7 +141,7 @@
     "window.openFoldersInNewWindow": "on",
     "search.maintainFileSearchCache": true,
     "search.showLineNumbers": true,
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Monokai Dimmed",
     "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -155,5 +153,18 @@
     },
     "[scss]": {
       "editor.defaultFormatter": "sasa.vscode-sass-format"
-    }
+    },
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "debug.console.fontFamily": "Input",
+    "debug.console.fontSize": 16,
+    "markdown.preview.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontWeightBold": "normal",
+    "terminal.integrated.fontFamily": "Input",
+    "workbench.fontAliasing": "auto",
+    "editor.cursorBlinking": "phase",
+    "terminal.integrated.cursorStyle": "underline",
+    "editor.cursorSurroundingLines": 1
 }
