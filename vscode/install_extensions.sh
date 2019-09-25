@@ -9,9 +9,9 @@ code --install-extension dsznajder.es7-react-js-snippets
 code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode
 code --install-extension flowtype.flow-for-vscode
+code --install-extension GitHub.vscode-pull-request-github
 code --install-extension ms-vscode.atom-keybindings
-code --install-extension ms-vsliveshare.vsliveshare
-code --install-extension ms-vsliveshare.vsliveshare-pack
+code --install-extension msjsdiag.debugger-for-chrome
 code --install-extension paulhoughton.vscode-jscpd
 code --install-extension PKief.material-icon-theme
 code --install-extension Poorchop.theme-darktooth
