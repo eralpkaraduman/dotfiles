@@ -51,7 +51,7 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx zsh-autosuggestions zsh-nvm tmux)
+plugins=(git osx zsh-autosuggestions zsh-nvm tmux npm yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -144,3 +144,6 @@ export PATH="$PATH:/Users/eralp/Projects/Yle/yle-aws-tools/bin"
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
 fi
+
+# Terraform
+chtf 0.12.0
