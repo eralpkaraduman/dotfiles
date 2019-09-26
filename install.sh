@@ -38,6 +38,9 @@ brew tap caskroom/fonts
 brew cask install font-fira-code
 echo "ok"
 
+echo "install input front by going to this url:"
+echo "https://input.fontbureau.com/build/?fontSelection=whole&a=0&g=ss&i=serifs_round&l=serifs_round&zero=slash&asterisk=0&braces=0&preset=default&line-height=1.3&accept=I+do&email="
+
 printf "vscode..."
 ln -s -f ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ~/dotfiles/vscode/install_extensions.sh
