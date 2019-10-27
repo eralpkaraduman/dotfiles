@@ -141,7 +141,7 @@
     "window.openFoldersInNewWindow": "on",
     "search.maintainFileSearchCache": true,
     "search.showLineNumbers": true,
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "New Moon",
     "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -166,5 +166,9 @@
     "workbench.fontAliasing": "auto",
     "editor.cursorBlinking": "phase",
     "terminal.integrated.cursorStyle": "underline",
-    "editor.cursorSurroundingLines": 1
+    "editor.cursorSurroundingLines": 1,
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "dart.closingLabels": false
 }

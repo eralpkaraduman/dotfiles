@@ -17,6 +17,7 @@ code --install-extension PKief.material-icon-theme
 code --install-extension Poorchop.theme-darktooth
 code --install-extension sasa.vscode-sass-format
 code --install-extension shinnn.stylelint
+code --install-extension silvenon.mdx
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension syler.sass-indented
 code --install-extension taniarascia.new-moon-vscode

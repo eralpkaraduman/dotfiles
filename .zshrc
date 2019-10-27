@@ -147,3 +147,4 @@ fi
 
 # Terraform
 chtf 0.12.0
+
