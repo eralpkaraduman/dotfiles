@@ -40,7 +40,7 @@ set showcmd                " Show already typed keys when more are expected.
 set incsearch              " Highlight while searching with / or ?.
 set hlsearch               " Keep matches highlighted.
 set ttyfast                " Faster redrawing.
-#set lazyredraw             " Only redraw when necessary.
+set lazyredraw             " Only redraw when necessary.
 set splitbelow             " Open new windows below the current window.
 set splitright             " Open new windows right of the current window.
 set cursorline             " Find the current line quickly.

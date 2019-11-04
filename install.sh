@@ -17,6 +17,10 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir -p ~/.config/nvim/
 ln -s -f ~/dotfiles/neovim/init.vim ~/.config/nvim/init.vim
+echo "run ':PlugInstall' in nvim"
+echo "ok"
+
+echo "Get Input font from here: https://input.fontbureau.com"
 
 printf "vim..."
 rm -rf ~/.vim_runtime
