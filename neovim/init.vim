@@ -86,12 +86,17 @@ Plug 'vim-syntastic/syntastic'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-fugitive'
 Plug 'chemzqm/vim-jsx-improve'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/yajs'
+Plug 'MaxMEllon/vim-jsx-pretty'
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
 else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 Plug 'ludovicchabant/vim-gutentags'
+set statusline+=%{gutentags#statusline()}
+let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "vendor", ".git", "node_modules", "*.vim/bundle/*"]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
