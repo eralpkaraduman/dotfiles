@@ -47,7 +47,7 @@
     },
     "dart.openDevTools": "flutter",
     "dart.debugExternalLibraries": false,
-    "dart.debugSdkLibraries": false,
+    "dart.debugSdkLibraries": false
 }
 
 // Old settings
