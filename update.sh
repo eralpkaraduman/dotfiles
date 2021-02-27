@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-echo "Updating vscode settings"
-cp ~/Library/Application\ Support/Code/User/settings.json ./vscode/settings.json
+echo "Updating vim settings"
+cp ~/.vimrc ./vimrc
 
 echo "Pushing to repository"
 git add .
-git commit -m "Updata"
+git commit -m "Update"
 git push
 
 echo "Done"
