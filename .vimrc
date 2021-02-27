@@ -2,6 +2,7 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 colo default
@@ -23,13 +24,13 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-" line moving
+"line moving
 nnoremap  <A-k> :m .-2<CR>==
 vnoremap  <A-j> :m '>+1<CR>gv=gv
 nnoremap  <A-j> :m .+1<CR>==
 vnoremap  <A-k> :m '<-2<CR>gv=gv
 
-" Disable dead keys for j and k
+"Disable dead keys for j and k
 nmap ∆ <A-j>
 nmap ˚ <A-k>
 
