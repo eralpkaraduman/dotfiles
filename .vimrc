@@ -1,4 +1,5 @@
 set nocompatible
+"set commentary
 
 call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
