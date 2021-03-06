@@ -14,6 +14,8 @@ set smartcase
 set nowrap
 set nu
 set noswapfile
+set showmatch
+set matchtime=3
 
 "no more arrow keys
 inoremap  <Up>     <NOP>
