@@ -10,8 +10,10 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 colorscheme github
+" use the github dark theme
+set background=dark
+let g:github_colors_soft = 1
 syntax on
-set syntax=whitespace
 set incsearch
 set ignorecase
 set smartcase
