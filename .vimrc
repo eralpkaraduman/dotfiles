@@ -1,13 +1,17 @@
 set nocompatible
-"set commentary
 
 call plug#begin('~/.vim/plugged')
+Plug 'cormacrelf/vim-colors-github'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
-colo default
+colorscheme github
 syntax on
+set syntax=whitespace
 set incsearch
 set ignorecase
 set smartcase
@@ -16,6 +20,9 @@ set nu
 set noswapfile
 set showmatch
 set matchtime=3
+
+nmap <C-p> :Files<CR>
+nmap <C-e> :Buffers<CR>
 
 "no more arrow keys
 inoremap  <Up>     <NOP>
