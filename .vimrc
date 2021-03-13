@@ -8,21 +8,23 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
+Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 "Coc plugins
 let g:coc_global_extensions = [
-    \ 'coc-pairs',
-    \ 'coc-html',
-    \ 'coc-highlight',
-    \ 'coc-git',
-    \ 'coc-eslint',
-    \ 'coc-tsserver',
-    \ 'coc-json',
-    \ 'coc-css',
-    \ 'coc-lists',
-    \ 'coc-eslint'
-    \ ]
+   \ 'coc-pairs',
+   \ 'coc-html',
+   \ 'coc-highlight',
+   \ 'coc-git',
+   \ 'coc-eslint',
+   \ 'coc-tsserver',
+   \ 'coc-json',
+   \ 'coc-css',
+   \ 'coc-lists',
+   \ 'coc-css',
+   \ 'coc-eslint'
+   \ ]
 
 syntax on
 colorscheme xcodedarkhc
@@ -41,8 +43,11 @@ nmap <C-p> :Files<CR>
 nmap <C-e> :Buffers<CR>
 
 let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar = '.'
+let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_char = '│'
+
+" For scss files
+autocmd FileType scss setl iskeyword+=@-@
 
 "no more arrow keys
 inoremap  <Up>     <NOP>
@@ -243,16 +248,16 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-"nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-"nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 
 " Search workspace symbols.
-"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 "nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
