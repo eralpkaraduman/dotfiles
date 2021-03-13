@@ -6,6 +6,8 @@ Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'dbakker/vim-projectroot'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "Coc plugins
@@ -17,7 +19,9 @@ let g:coc_global_extensions = [
     \ 'coc-eslint',
     \ 'coc-tsserver',
     \ 'coc-json',
-    \ 'coc-css'
+    \ 'coc-css',
+    \ 'coc-lists',
+    \ 'coc-eslint'
     \ ]
 
 syntax on
@@ -27,12 +31,17 @@ set ignorecase
 set smartcase
 set nowrap
 set nu
-set noswapfile
 set showmatch
 set matchtime=3
 
+let mapleader=" "
+
 nmap <C-p> :Files<CR>
 nmap <C-e> :Buffers<CR>
+
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '.'
+let g:indentLine_char = '│'
 
 "no more arrow keys
 inoremap  <Up>     <NOP>
@@ -43,6 +52,13 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
+" Set tab width to 2 columns
+set tabstop=2
+" Use 2 columns for indentation
+set shiftwidth=2
+" Use spaces when pressing <tab> key
+set expandtab
 
 "line moving
 nnoremap  <A-k> :m .-2<CR>==
@@ -57,12 +73,22 @@ nmap ˚ <A-k>
 imap jj <Esc>
 
 set laststatus=2
-set statusline=%f "tail of the filename
+set statusline=\ %f "tail of the filename
+set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
+" Search Stuff
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \                         : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%', '?'),
+  \                 <bang>0)
+
+nnoremap <silent> <C-f>f :<C-u>ProjectRootExe Ag <cr>
+vnoremap <silent> <C-f>f y:ProjectRootExe Ag <C-r>=fnameescape(@")<CR><CR>
 
 " coc.nvim sample configuration below based on: https://github.com/neoclide/coc.nvim
 
@@ -143,7 +169,7 @@ function! s:show_documentation()
     call CocActionAsync('doHover')
   else
     execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -216,18 +242,19 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+"nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
