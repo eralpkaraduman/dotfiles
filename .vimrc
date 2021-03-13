@@ -8,7 +8,10 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 call plug#end()
 
 "Coc plugins
@@ -36,6 +39,9 @@ set nu
 set showmatch
 set matchtime=3
 set cursorline
+
+" This might cause performance issues
+syntax sync fromstart
 
 let mapleader=" "
 
@@ -166,7 +172,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -177,6 +183,16 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
 
 endfunction
+
+" Show documentation on K (based on: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim )
+nnoremap <silent> K :call CocAction('doHover')<CR>
+
+function! s:show_hover_doc()
+  call timer_start(500, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
