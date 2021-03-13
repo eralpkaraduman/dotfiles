@@ -33,6 +33,7 @@ set nowrap
 set nu
 set showmatch
 set matchtime=3
+set cursorline
 
 let mapleader=" "
 
