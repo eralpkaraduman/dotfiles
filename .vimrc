@@ -39,6 +39,9 @@ set nu
 set showmatch
 set matchtime=3
 set cursorline
+"set mouse=niv
+set mouse=a
+set clipboard=unnamed
 
 " This might cause performance issues
 syntax sync fromstart
@@ -50,7 +53,7 @@ nmap <C-e> :Buffers<CR>
 
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_char = '│'
+let g:indentLine_char = '¦'
 
 " For scss files
 autocmd FileType scss setl iskeyword+=@-@
@@ -186,6 +189,13 @@ endfunction
 
 " Show documentation on K (based on: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim )
 nnoremap <silent> K :call CocAction('doHover')<CR>
+
+" Show documentation automatically
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_scroll() == 0 && coc#status() != '')
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
 
 function! s:show_hover_doc()
   call timer_start(500, 'ShowDocIfNoDiagnostic')
