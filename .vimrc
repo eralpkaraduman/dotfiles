@@ -47,7 +47,7 @@ set mouse=a
 set clipboard=unnamed
 let g:indentLine_fileTypeExclude = ['json', 'md']
 if has('nvim')
-  set guifont=Iosevka\ Fixed:h12
+  set guifont=Iosevka\ Fixed:h11
 endif
 
 " This might cause performance issues
