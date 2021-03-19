@@ -4,10 +4,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" For Mac
-" Plug '/usr/local/opt/fzf'
-" For Win
-Plug 'junegunn/fzf'
+if has('fzf') " For Mac
+  Plug '/usr/local/opt/fzf'
+else " For Windows
+  Plug 'junegunn/fzf'
+endif
 Plug 'junegunn/fzf.vim'
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
@@ -45,6 +46,9 @@ set cursorline
 set mouse=a
 set clipboard=unnamed
 let g:indentLine_fileTypeExclude = ['json', 'md']
+if has('nvim')
+  set guifont=Iosevka\ Fixed:h12
+endif
 
 " This might cause performance issues
 syntax sync fromstart
