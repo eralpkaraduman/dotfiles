@@ -25,8 +25,7 @@ let g:coc_global_extensions = [
    \ 'coc-json',
    \ 'coc-css',
    \ 'coc-lists',
-   \ 'coc-css',
-   \ 'coc-eslint'
+   \ 'coc-css'
    \ ]
 
 syntax on
@@ -42,6 +41,7 @@ set cursorline
 "set mouse=niv
 set mouse=a
 set clipboard=unnamed
+let g:indentLine_fileTypeExclude = ['json', 'md']
 
 " This might cause performance issues
 syntax sync fromstart
@@ -191,18 +191,18 @@ endfunction
 nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " Show documentation automatically
-function! ShowDocIfNoDiagnostic(timer_id)
-  if (coc#float#has_scroll() == 0 && coc#status() != '')
-    silent call CocActionAsync('doHover')
-  endif
-endfunction
-
-function! s:show_hover_doc()
-  call timer_start(500, 'ShowDocIfNoDiagnostic')
-endfunction
-
-autocmd CursorHoldI * :call <SID>show_hover_doc()
-autocmd CursorHold * :call <SID>show_hover_doc()
+"function! ShowDocIfNoDiagnostic(timer_id)
+"  if (coc#float#has_scroll() == 0 && coc#status() != '')
+"    silent call CocActionAsync('doHover')
+"  endif
+"endfunction
+"
+"function! s:show_hover_doc()
+"  call timer_start(500, 'ShowDocIfNoDiagnostic')
+"endfunction
+"
+"autocmd CursorHoldI * :call <SID>show_hover_doc()
+"autocmd CursorHold * :call <SID>show_hover_doc()
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -280,7 +280,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Show commands.
 " nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 
 " Search workspace symbols.
 " nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
