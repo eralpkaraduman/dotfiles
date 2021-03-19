@@ -4,7 +4,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug '/usr/local/opt/fzf'
+" For Mac
+" Plug '/usr/local/opt/fzf'
+" For Win
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
