@@ -43,6 +43,9 @@ set cursorline
 set mouse=a
 set clipboard=unnamed
 let g:indentLine_fileTypeExclude = ['json', 'md', 'coc-explorer']
+if (&filetype == 'coc-explorer')
+  let g:indentLine_enabled = 0
+endif
 if has('nvim')
   set guifont=Iosevka\ Fixed:h11
 endif
@@ -57,7 +60,7 @@ nmap <C-e> :Buffers<CR>
 
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_char = '¦'
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 " For scss files
 autocmd FileType scss setl iskeyword+=@-@
@@ -109,10 +112,6 @@ command! -bang -nargs=* Ag
 nnoremap <silent> <C-f>f :<C-u>ProjectRootExe Ag <cr>
 vnoremap <silent> <C-f>f y:ProjectRootExe Ag <C-r>=fnameescape(@")<CR><CR>
 
-" coc-explorer mappings
-
-
-
 " coc.nvim sample configuration below based on: https://github.com/neoclide/coc.nvim
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
@@ -127,7 +126,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
