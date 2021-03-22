@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 echo "Updating vim settings"
-cp ~/.vimrc ./.vimrc
+cp ~/.vimrc .
+cp ~/.vim/coc-settings.json .
 
 echo "Pushing to repository"
 git add .
