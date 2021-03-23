@@ -43,20 +43,36 @@ set cursorline
 set mouse=a
 set clipboard=unnamed
 let g:indentLine_fileTypeExclude = ['json', 'md', 'coc-explorer']
-if (&filetype == 'coc-explorer')
-  let g:indentLine_enabled = 0
-endif
+
 if has('nvim')
   set guifont=Iosevka\ Fixed:h11
 endif
 
+" Change between splits fast
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+
 " This might cause performance issues
-syntax sync fromstart
+" syntax sync fromstart
 
 let mapleader=" "
 
 nmap <C-p> :Files<CR>
 nmap <C-e> :Buffers<CR>
+
+" IndentLine stuff
+" Disable indentline for coc-explorer
+function! IndentLineExclude()
+  if &filetype == 'coc-explorer'
+    IndentLinesDisable
+    LeadingSpaceDisable
+  endif
+endfunction
+
+augroup indentline_exclude
+  autocmd!
+  autocmd WinEnter,BufEnter,FileType * call IndentLineExclude()
+augroup end
 
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
