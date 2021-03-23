@@ -42,7 +42,6 @@ set cursorline
 "set mouse=niv
 set mouse=a
 set clipboard=unnamed
-" set textwidth=0
 let g:indentLine_fileTypeExclude = ['json', 'md', 'coc-explorer']
 
 " For setting nvim-qt font
