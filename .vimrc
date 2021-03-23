@@ -42,11 +42,13 @@ set cursorline
 "set mouse=niv
 set mouse=a
 set clipboard=unnamed
+" set textwidth=0
 let g:indentLine_fileTypeExclude = ['json', 'md', 'coc-explorer']
 
-if has('nvim')
-  set guifont=Iosevka\ Fixed:h11
-endif
+" For setting nvim-qt font
+" if has('nvim')
+"   set guifont=Iosevka\ Fixed:h11
+" endif
 
 " Change between splits fast
 nmap <C-h> <C-w>h
@@ -55,6 +57,7 @@ nmap <C-l> <C-w>l
 " This might cause performance issues
 " syntax sync fromstart
 
+" Set Space as leader
 let mapleader=" "
 
 nmap <C-p> :Files<CR>
