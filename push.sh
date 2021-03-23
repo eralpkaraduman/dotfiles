@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
 echo "Updating vim settings"
-cp ~/.vimrc .
-cp ~/.vim/coc-settings.json .
-cp ~/.config/nvim/init.vim .
-cp ~/.config/nvim/coc-settings.json
+mkdir -p ./vim
+cp ~/.vimrc ./vim
+cp ~/.vim/coc-settings.json ./vim
+
+mkdir -p ./nvim
+cp ~/.config/nvim/init.vim ./nvim
+cp ~/.config/nvim/coc-settings.json ./nvim
 
 echo "Pushing to repository"
 git add .
