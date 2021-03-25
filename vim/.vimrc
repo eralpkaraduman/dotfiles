@@ -4,8 +4,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'
@@ -59,7 +59,7 @@ nmap <C-l> <C-w>l
 " Set Space as leader
 let mapleader=" "
 
-nmap <C-p> :Files<CR>
+nmap <C-p> :GFiles --exclude-standard --others --cached<CR>
 nmap <C-e> :Buffers<CR>
 
 " IndentLine stuff
@@ -127,8 +127,9 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%', '?'),
   \                 <bang>0)
 
-nnoremap <silent> <C-f>f :<C-u>ProjectRootExe Ag <cr>
-vnoremap <silent> <C-f>f y:ProjectRootExe Ag <C-r>=fnameescape(@")<CR><CR>
+nnoremap <silent> <C-f> :ProjectRootExe Ag<cr>
+" nnoremap <silent> <C-f>f :<C-u>ProjectRootExe Ag <cr>
+" vnoremap <silent> <C-f>f y:ProjectRootExe Ag <C-r>=fnameescape(@")<CR><CR>
 
 " coc.nvim sample configuration below based on: https://github.com/neoclide/coc.nvim
 
@@ -200,34 +201,34 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-
-endfunction
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   elseif (coc#rpc#ready())
+"     call CocActionAsync('doHover')
+"   else
+"     execute '!' . &keywordprg . " " . expand('<cword>')
+" 
+" endfunction
 
 " Show documentation on K (based on: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim )
 nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " Show documentation automatically
-"function! ShowDocIfNoDiagnostic(timer_id)
-"  if (coc#float#has_scroll() == 0 && coc#status() != '')
-"    silent call CocActionAsync('doHover')
-"  endif
-"endfunction
-"
-"function! s:show_hover_doc()
-"  call timer_start(500, 'ShowDocIfNoDiagnostic')
-"endfunction
-"
-"autocmd CursorHoldI * :call <SID>show_hover_doc()
-"autocmd CursorHold * :call <SID>show_hover_doc()
+" function! ShowDocIfNoDiagnostic(timer_id)
+"   if (coc#float#has_scroll() == 0 && coc#status() != '')
+"     silent call CocActionAsync('doHover')
+"   endif
+" endfunction
+" 
+" function! s:show_hover_doc()
+"   call timer_start(500, 'ShowDocIfNoDiagnostic')
+" endfunction
+
+" autocmd CursorHoldI * :call <SID>show_hover_doc()
+" autocmd CursorHold * :call <SID>show_hover_doc()
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -269,14 +270,14 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
+" if has('nvim-0.4.0') || has('patch-8.2.0750')
+"   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+"   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+"   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+" endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
@@ -352,5 +353,5 @@ let g:coc_explorer_global_presets = {
 \ }
 
 nmap <space>e :CocCommand explorer<CR>
-nmap <space>f :CocCommand explorer --preset floating<CR>
+" nmap <space>f :CocCommand explorer --preset floating<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
