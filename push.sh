@@ -5,6 +5,7 @@ mkdir -p ./vim
 cp ~/.vimrc ./vim
 cp ~/.vim/coc-settings.json ./vim
 
+echo "Updating neovim settings"
 mkdir -p ./nvim
 cp ~/.config/nvim/init.vim ./nvim
 cp ~/.config/nvim/coc-settings.json ./nvim
