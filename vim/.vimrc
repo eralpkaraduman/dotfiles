@@ -42,7 +42,6 @@ set cursorline
 "set mouse=niv
 set mouse=a
 set clipboard=unnamed
-let g:indentLine_fileTypeExclude = ['json', 'md', 'coc-explorer']
 set scrolloff=4
 
 " For setting nvim-qt font
@@ -64,6 +63,7 @@ nmap <C-p> :GFiles --exclude-standard --others --cached<CR>
 nmap <C-e> :Buffers<CR>
 
 " IndentLine stuff
+let g:indentLine_fileTypeExclude = ['json', 'md', 'coc-explorer']
 " Disable indentline for coc-explorer
 function! IndentLineExclude()
   if &filetype == 'coc-explorer'
