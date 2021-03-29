@@ -1,0 +1,10 @@
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting
+robbyrussell/oh-my-zsh path:plugins/git
+mafredri/zsh-async
+sindresorhus/pure
+lukechilds/zsh-better-npm-completion
+jeffreytse/zsh-vi-mode
+Aloxaf/fzf-tab
