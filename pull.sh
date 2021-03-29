@@ -11,6 +11,10 @@ mkdir -p ./vim
 cp ./vim/.vimrc ~/.vimrc
 cp ./vim/coc-settings.json ~/.vim/coc-settings.json
 
+echo "Updating zsh settings"
+cp .zshrc ~/.zshrc
+cp .zsh_plugins.txt ~/.zsh_plugins.txt
+
 echo "Updating neovim settings"
 mkdir -p ./nvim
 cp ./nvim/init.vim ~/.config/nvim/init.vim          
