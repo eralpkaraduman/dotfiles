@@ -66,10 +66,8 @@ prompt pure
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-# YLE AWS Tools
-export PATH="$HOME/Projects/Yle/yle-aws-tools/bin:$PATH"
 
-# Flutter (Overriden by HH Flutter)
+# Flutter (Overriden by HH Flutter in .zshrc-private)
 # export PATH="$PATH:$HOME/flutter/bin"
 
 # Python
@@ -85,13 +83,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # LOVE2D
 export PATH=$PATH:/Applications/love.app/Contents/MacOS/
 
-# HH
-export PATH=$PATH:/Users/eralpkaraduman/Projects/Frogmind/HypeHype/depot_tools
-export PATH=$PATH:/Users/eralpkaraduman/Projects/Frogmind/HypeHype/flutter/bin
-export FLUTTER_ENGINE=/Users/eralpkaraduman/Projects/Frogmind/HypeHype/flutter-engine/src
-export PATH=$PATH":"$HOME/.pub-cache/bin
-export PINGPONG_ENVIRONMENT_NAME="local"
-export FLUTTER_ENGINE_TYPE=host_debug_unopt
 
 # Google Cloud
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
