@@ -54,9 +54,10 @@ source ~/.zsh_plugins.sh
 # antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 # Pure Prompt theme
+# Based on https://nicedoc.io/sindresorhus/pure#example
 autoload -U promptinit; promptinit
 PURE_CMD_MAX_EXEC_TIME=10
-zstyle :prompt:pure:path color grey
+zstyle :prompt:pure:path color white
 zstyle ':prompt:pure:prompt:*' color cyan
 zstyle :prompt:pure:git:stash show yes
 prompt pure
