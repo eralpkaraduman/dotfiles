@@ -12,7 +12,6 @@ cp ~/.config/nvim/coc-settings.json ./nvim
 
 echo "Updating zsh settings"
 cp ~/.zshrc .
-cp ~/.zsh_plugins.txt .
 
 echo "Pushing to repository"
 git add .
