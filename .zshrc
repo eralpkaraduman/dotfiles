@@ -32,8 +32,6 @@ zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion::complete:*' cache-path ':completion:*' list-colors ''
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 
-# Complete stuff with fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Other
 setopt prompt_subst
@@ -46,26 +44,45 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completionsource ~/.zsh_plugins.sh
 
-# Antibody
-source ~/.zsh_plugins.sh
-# Add plugins to 
-# ~/.zsh_plugins.txt
-# Then run
-# antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+eval $(thefuck --alias)
+
+# Antigen
+# install antigen https://github.com/zsh-users/antigen
+source ~/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle git
+#antigen bundle pip
+antigen bundle osx
+antigen bundle fzf
+antigen bundle node
+antigen bundle yarn
+#antigen bundle vi-mode
+#antigen bundle virtualenv
+#antigen bundle iterm2
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle command-not-found
+antigen bundle thefuck
+#antigen bundle mafredri/zsh-async
+#antigen bundle lukechilds/zsh-better-npm-completion
+antigen bundle Aloxaf/fzf-tab
+antigen apply
 
 # Pure Prompt theme
+# Install pure prompt manually npm install --global pure-prompt
 # Based on https://nicedoc.io/sindresorhus/pure#example
 autoload -U promptinit; promptinit
 PURE_CMD_MAX_EXEC_TIME=10
-zstyle :prompt:pure:path color white
+zstyle :prompt:pure:path color gray
 zstyle ':prompt:pure:prompt:*' color cyan
 zstyle :prompt:pure:git:stash show yes
 prompt pure
 
-# Java
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
+# # Java
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
 # Flutter (Overriden by HH Flutter in .zshrc-private)
 # export PATH="$PATH:$HOME/flutter/bin"

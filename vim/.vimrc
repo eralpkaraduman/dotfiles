@@ -11,7 +11,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 "Coc plugins
