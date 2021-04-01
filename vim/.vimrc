@@ -40,8 +40,8 @@ let g:coc_global_extensions = [
    \ ]
 
 syntax on
-" colorscheme xcodedarkhc
-colorscheme gruvbox
+colorscheme xcodedarkhc
+" colorscheme gruvbox
 set incsearch
 set nowrap
 set nu
@@ -66,9 +66,9 @@ set colorcolumn=80
 
 set noswapfile
 set nobackup
+" create this directory
 set undodir=~/.vim/undodir
 set undofile
-
 
 " Install iosevka font with powerline glyphs
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka/Regular/complete
