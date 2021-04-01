@@ -40,8 +40,8 @@ let g:coc_global_extensions = [
    \ ]
 
 syntax on
-colorscheme xcodedarkhc
-" colorscheme gruvbox
+" colorscheme xcodedarkhc
+colorscheme gruvbox
 set incsearch
 set nowrap
 set nu
@@ -62,7 +62,7 @@ set ignorecase
 " set termguicolors
 set smartcase
 set signcolumn=yes
-set colorcolumn=80
+set colorcolumn=100
 
 set noswapfile
 set nobackup
