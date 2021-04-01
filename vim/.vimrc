@@ -12,7 +12,15 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'maxmellon/vim-jsx-pretty',
+Plug 'godlygeek/tabular',
+Plug 'plasticboy/vim-markdown',
+Plug 'gruvbox-community/gruvbox',
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install',
+  \ 'branch': 'release/0.x',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
+  \ }
 call plug#end()
 
 "Coc plugins
@@ -27,14 +35,14 @@ let g:coc_global_extensions = [
    \ 'coc-css',
    \ 'coc-lists',
    \ 'coc-css',
-   \ 'coc-explorer'
+   \ 'coc-explorer',
+   \ 'coc-prettier'
    \ ]
 
 syntax on
-colorscheme xcodedarkhc
+" colorscheme xcodedarkhc
+colorscheme gruvbox
 set incsearch
-set ignorecase
-set smartcase
 set nowrap
 set nu
 set showmatch
@@ -43,9 +51,29 @@ set cursorline
 "set mouse=niv
 set mouse=a
 set clipboard=unnamed
-set scrolloff=4
+set scrolloff=6
+set autoread
+au FocusGained,BufEnter * :checktime
+set tabstop=2 softtabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
+set ignorecase
+" set termguicolors
+set smartcase
+set signcolumn=yes
+set colorcolumn=80
 
-" For setting nvim-qt font
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+
+
+" Install iosevka font with powerline glyphs
+" https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka/Regular/complete
+
+" For setting nvim-qt font on windows
 " if has('nvim')
 "   set guifont=Iosevka\ Fixed:h11
 " endif
