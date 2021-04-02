@@ -75,7 +75,7 @@ set undofile
 
 " For setting nvim-qt font on windows
 if exists('GuiFont')
-  autocmd VimEnter * GuiFont! Iosevka\ NF:h14
+  autocmd VimEnter * GuiFont! Iosevka\ NF:h31
 endif
 
 " Change between splits fast
