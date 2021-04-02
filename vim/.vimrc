@@ -74,7 +74,9 @@ set undofile
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka/Regular/complete
 
 " For setting nvim-qt font on windows
-autocmd VimEnter * GuiFont! Iosevka\ NF:h14
+if exists('GuiFont')
+  autocmd VimEnter * GuiFont! Iosevka\ NF:h14
+endif
 
 " Change between splits fast
 nmap <C-h> <C-w>h
