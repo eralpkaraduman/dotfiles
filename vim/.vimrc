@@ -14,8 +14,8 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
 Plug 'maxmellon/vim-jsx-pretty',
 Plug 'godlygeek/tabular',
-Plug 'plasticboy/vim-markdown',
 Plug 'gruvbox-community/gruvbox',
+Plug 'sjl/badwolf',
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'branch': 'release/0.x',
@@ -41,7 +41,9 @@ let g:coc_global_extensions = [
 
 syntax on
 " colorscheme xcodedarkhc
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme badwolf
+let g:badwolf_darkgutter = 1
 set incsearch
 set nowrap
 set nu
