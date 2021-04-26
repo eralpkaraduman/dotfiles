@@ -16,6 +16,7 @@ Plug 'maxmellon/vim-jsx-pretty',
 Plug 'godlygeek/tabular',
 Plug 'gruvbox-community/gruvbox',
 Plug 'sjl/badwolf',
+Plug 'tpope/vim-fugitive',
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'branch': 'release/0.x',
@@ -41,9 +42,10 @@ let g:coc_global_extensions = [
 
 syntax on
 " colorscheme xcodedarkhc
-" colorscheme gruvbox
-colorscheme badwolf
-let g:badwolf_darkgutter = 1
+colorscheme gruvbox
+set background=dark
+" colorscheme badwolf
+" let g:badwolf_darkgutter = 1
 set incsearch
 set nowrap
 set nu
@@ -84,9 +86,18 @@ endfunction
 
 autocmd VimEnter * call SetNvimqtFont() 
 
+" Fugitive stuff
+nmap <leader>gl :diffget //3<CR>
+nmap <leader>gh :diffget //2<CR>
+nmap <leader>gs :G<CR>
+
 " Change between splits fast
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
+nmap <C-S-h> <C-w>h
+nmap <C-S-l> <C-w>l
+nmap <C-S-j> <C-w>j
+nmap <C-S-k> <C-w>k
 
 " This might cause performance issues
 " syntax sync fromstart
