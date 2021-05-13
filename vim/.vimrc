@@ -87,9 +87,9 @@ endfunction
 autocmd VimEnter * call SetNvimqtFont() 
 
 " Fugitive stuff
-nmap <leader>gl :diffget //3<CR>
-nmap <leader>gh :diffget //2<CR>
-nmap <leader>gs :G<CR>
+nmap <leader>gs :vertical Gstatus<CR>
+" nmap <leader>gl :diffget //3<CR>
+" nmap <leader>gh :diffget //2<CR>
 
 " Change between splits fast
 nmap <C-h> <C-w>h
