@@ -87,7 +87,7 @@ endfunction
 autocmd VimEnter * call SetNvimqtFont() 
 
 " Fugitive stuff
-nmap <leader>gs :vertical Gstatus<CR>
+nmap <leader>gs :vertical G<CR>
 " nmap <leader>gl :diffget //3<CR>
 " nmap <leader>gh :diffget //2<CR>
 
@@ -157,7 +157,13 @@ vnoremap  <A-k> :m '<-2<CR>gv=gv
 nmap ∆ <A-j>
 nmap ˚ <A-k>
 
-imap jj <Esc>
+imap jj<Esc>
+
+" Save
+nnoremap <Leader>w :w<cr>
+
+"Clear search highlights
+nnoremap <esc><esc> :noh<return>
 
 set laststatus=2
 set statusline=\ %f "tail of the filename
@@ -356,7 +362,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 
 " Search workspace symbols.
-" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 "nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
