@@ -1723,7 +1723,7 @@
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>
-	<true/>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
@@ -1738,6 +1738,10 @@
 	<integer>0</integer>
 	<key>TabsHaveCloseButton</key>
 	<false/>
+	<key>TerminalMargin</key>
+	<integer>0</integer>
+	<key>TerminalVMargin</key>
+	<integer>0</integer>
 	<key>ThrottleMetalConcurrentFrames</key>
 	<false/>
 	<key>UseBorder</key>

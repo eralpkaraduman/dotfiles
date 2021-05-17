@@ -88,6 +88,7 @@ autocmd VimEnter * call SetNvimqtFont()
 
 " Fugitive stuff
 nmap <leader>gs :vertical G<CR>
+nmap <leader>gl :vertical Gclog<CR>
 " nmap <leader>gl :diffget //3<CR>
 " nmap <leader>gh :diffget //2<CR>
 
@@ -256,18 +257,18 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   elseif (coc#rpc#ready())
-"     call CocActionAsync('doHover')
-"   else
-"     execute '!' . &keywordprg . " " . expand('<cword>')
-" 
-" endfunction
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " Show documentation on K (based on: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim )
-nnoremap <silent> K :call CocAction('doHover')<CR>
+" nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " Show documentation automatically
 " function! ShowDocIfNoDiagnostic(timer_id)
