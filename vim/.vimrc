@@ -74,6 +74,8 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 
+imap jj <Esc>
+
 " Install iosevka font with powerline glyphs
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka/Regular/complete
 
@@ -88,7 +90,7 @@ autocmd VimEnter * call SetNvimqtFont()
 
 " Fugitive stuff
 nmap <leader>gs :vertical G<CR>
-nmap <leader>gl :vertical Gclog<CR>
+nmap <leader>gl Gclog<CR>
 " nmap <leader>gl :diffget //3<CR>
 " nmap <leader>gh :diffget //2<CR>
 
@@ -157,8 +159,6 @@ vnoremap  <A-k> :m '<-2<CR>gv=gv
 "Disable dead keys for j and k
 nmap ∆ <A-j>
 nmap ˚ <A-k>
-
-imap jj<Esc>
 
 " Save
 nnoremap <Leader>w :w<cr>
