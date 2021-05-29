@@ -106,3 +106,6 @@ source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.z
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 source ~/.zshrc-private
+
+export PATH=$PATH:/Users/eralpkaraduman/tools
+

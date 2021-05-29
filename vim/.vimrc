@@ -90,7 +90,8 @@ autocmd VimEnter * call SetNvimqtFont()
 
 " Fugitive stuff
 nmap <leader>gs :vertical G<CR>
-nmap <leader>gl Gclog<CR>
+nmap <leader>gl :Gclog<CR>
+nmap <leader>gf :Gclog -- %<CR>
 " nmap <leader>gl :diffget //3<CR>
 " nmap <leader>gh :diffget //2<CR>
 
