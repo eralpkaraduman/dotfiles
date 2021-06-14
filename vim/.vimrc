@@ -1,7 +1,6 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
@@ -9,17 +8,17 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
 " Plug 'pangloss/vim-javascript'
-Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'peitalin/vim-jsx-typescript'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
-Plug 'maxmellon/vim-jsx-pretty',
 Plug 'godlygeek/tabular',
 " Plug 'gruvbox-community/gruvbox',
 " Plug 'sjl/badwolf',
 " Plug 'joshdick/onedark.vim'
+Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-fugitive',
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
@@ -50,7 +49,7 @@ syntax on
 colorscheme xcodedarkhc
 
 " colorscheme gruvbox
-" set background=dark
+set background=dark
 
 " colorscheme badwolf
 " let g:badwolf_darkgutter = 1
