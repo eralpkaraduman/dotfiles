@@ -8,15 +8,18 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+" Plug 'pangloss/vim-javascript'
+Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
 Plug 'maxmellon/vim-jsx-pretty',
 Plug 'godlygeek/tabular',
-Plug 'gruvbox-community/gruvbox',
-Plug 'sjl/badwolf',
-Plug 'joshdick/onedark.vim'
+" Plug 'gruvbox-community/gruvbox',
+" Plug 'sjl/badwolf',
+" Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-fugitive',
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
@@ -43,7 +46,8 @@ let g:coc_global_extensions = [
 
 syntax on
 " Color Schemes 
-" colorscheme xcodedarkhc
+
+colorscheme xcodedarkhc
 
 " colorscheme gruvbox
 " set background=dark
@@ -51,7 +55,7 @@ syntax on
 " colorscheme badwolf
 " let g:badwolf_darkgutter = 1
 
-colorscheme onedark
+" colorscheme onedark
 
 set incsearch
 set nowrap
@@ -74,6 +78,7 @@ set ignorecase
 set smartcase
 set signcolumn=yes
 set colorcolumn=100
+let g:vim_jsx_pretty_highlight_close_tag = 1
 
 set noswapfile
 set nobackup
