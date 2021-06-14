@@ -16,6 +16,7 @@ Plug 'maxmellon/vim-jsx-pretty',
 Plug 'godlygeek/tabular',
 Plug 'gruvbox-community/gruvbox',
 Plug 'sjl/badwolf',
+Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-fugitive',
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
@@ -41,11 +42,17 @@ let g:coc_global_extensions = [
    \ ]
 
 syntax on
+" Color Schemes 
 " colorscheme xcodedarkhc
-colorscheme gruvbox
-set background=dark
+
+" colorscheme gruvbox
+" set background=dark
+
 " colorscheme badwolf
 " let g:badwolf_darkgutter = 1
+
+colorscheme onedark
+
 set incsearch
 set nowrap
 set nu
@@ -409,4 +416,6 @@ let g:coc_explorer_global_presets = {
 
 nmap <space>e :CocCommand explorer<CR>
 " nmap <space>f :CocCommand explorer --preset floating<CR>
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+" Close vim if last remaining window is coc-explorer
+" autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
