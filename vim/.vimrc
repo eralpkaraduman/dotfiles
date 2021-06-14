@@ -7,17 +7,17 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
-" Plug 'pangloss/vim-javascript'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'peitalin/vim-jsx-typescript'
+"Plug 'pangloss/vim-javascript'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
 Plug 'godlygeek/tabular',
-" Plug 'gruvbox-community/gruvbox',
-" Plug 'sjl/badwolf',
-" Plug 'joshdick/onedark.vim'
+"Plug 'gruvbox-community/gruvbox',
+"Plug 'sjl/badwolf',
+"Plug 'joshdick/onedark.vim'
 Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-fugitive',
 Plug 'prettier/vim-prettier', {
@@ -44,17 +44,19 @@ let g:coc_global_extensions = [
    \ ]
 
 syntax on
+
 " Color Schemes 
 
 colorscheme xcodedarkhc
 
-" colorscheme gruvbox
+"colorscheme gruvbox
 set background=dark
 
-" colorscheme badwolf
-" let g:badwolf_darkgutter = 1
+"colorscheme badwolf
+"let g:badwolf_darkgutter = 1
 
-" colorscheme onedark
+"colorscheme onedark
+
 
 set incsearch
 set nowrap
