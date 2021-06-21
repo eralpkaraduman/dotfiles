@@ -97,7 +97,8 @@ imap jj <Esc>
 " For setting nvim-qt font on windows
 function! SetNvimqtFont()
   if exists(':GuiFont')
-    GuiFont! Iosevka\ NF:h14
+    " GuiFont! Iosevka\ NF:h14
+    GuiFont! SFMono\ Nerd\ Font:h14
   endif
 endfunction
 
