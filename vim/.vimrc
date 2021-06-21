@@ -14,7 +14,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
-Plug 'godlygeek/tabular',
+Plug 'godlygeek/tabular', " Remove this if it's not a depency of others?
 "Plug 'gruvbox-community/gruvbox',
 "Plug 'sjl/badwolf',
 "Plug 'joshdick/onedark.vim'
@@ -79,6 +79,8 @@ set ignorecase
 set smartcase
 set signcolumn=yes
 set colorcolumn=100
+
+" vim-jsx-pretty options
 let g:vim_jsx_pretty_highlight_close_tag = 1
 
 set noswapfile
