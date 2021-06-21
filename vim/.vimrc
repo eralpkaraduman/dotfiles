@@ -20,6 +20,8 @@ Plug 'godlygeek/tabular', " Remove this if it's not a depency of others?
 "Plug 'joshdick/onedark.vim'
 Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-fugitive',
+Plug 'Shougo/vimproc.vim'
+Plug 'idanarye/vim-merginal'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'branch': 'release/0.x',
