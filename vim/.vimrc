@@ -7,6 +7,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
 "Plug 'pangloss/vim-javascript'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'peitalin/vim-jsx-typescript'
