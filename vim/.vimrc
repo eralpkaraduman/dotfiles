@@ -93,19 +93,27 @@ set undofile
 
 imap jj <Esc>
 
-" Install iosevka font with powerline glyphs
-" https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka/Regular/complete
+if has('win16') || has('win32') || has('win64')
+  " Fix fzf.vim on windows
+  let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
 
-" For setting nvim-qt font on windows
-function! SetNvimqtFont()
-  if exists(':GuiFont')
-    " GuiFont! Iosevka\ NF:h14
-    GuiFont! SFMono\ Nerd\ Font:h14
-  endif
-endfunction
+  " Set nvim-qt font on windows
+  function! SetNvimqtFont()
+    if exists(':GuiFont')
+      " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka/Regular/complete
+      " GuiFont! Iosevka\ NF:h14
 
-autocmd VimEnter * call SetNvimqtFont() 
+      " https://github.com/epk/SF-Mono-Nerd-Font
+      GuiFont! SFMono\ Nerd\ Font:h14
+    endif
+  endfunction
 
+  autocmd VimEnter * call SetNvimqtFont() 
+endif
+
+" Set Space as leader
+let mapleader=" "
+"
 " Fugitive stuff
 nmap <leader>gs :vertical G<CR>
 nmap <leader>gl :Gclog<CR>
@@ -122,10 +130,7 @@ nmap <C-S-j> <C-w>j
 nmap <C-S-k> <C-w>k
 
 " This might cause performance issues
-" syntax sync fromstart
-
-" Set Space as leader
-let mapleader=" "
+syntax sync fromstart
 
 nmap <C-p> :GFiles --exclude-standard --others --cached<CR>
 nmap <C-e> :Buffers<CR>
@@ -169,31 +174,31 @@ set shiftwidth=2
 " Use spaces when pressing <tab> key
 set expandtab
 
-"line moving
+" Line moving
 nnoremap  <A-k> :m .-2<CR>==
 vnoremap  <A-j> :m '>+1<CR>gv=gv
 nnoremap  <A-j> :m .+1<CR>==
 vnoremap  <A-k> :m '<-2<CR>gv=gv
 
-"Disable dead keys for j and k
+" Disable mac \"English ABC\" keyboard dead keys for j and k
 nmap ∆ <A-j>
 nmap ˚ <A-k>
 
 " Save
 nnoremap <Leader>w :w<cr>
 
-"Clear search highlights
+" Clear search highlights
 nnoremap <esc><esc> :noh<return>
 
 set laststatus=2
 set statusline=\ %f "tail of the filename
 set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
-
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Search Stuff
+" Install bat for syntax highlighted previews: https://github.com/sharkdp/bat#installation
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
   \                 <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
