@@ -8,6 +8,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 "Plug 'pangloss/vim-javascript'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'peitalin/vim-jsx-typescript'
@@ -83,6 +84,9 @@ set smartcase
 set signcolumn=yes
 set colorcolumn=100
 
+let g:airline_powerline_fonts = 1
+let g:airline_theme='minimalist'
+
 " vim-jsx-pretty options
 let g:vim_jsx_pretty_highlight_close_tag = 1
 
@@ -105,7 +109,9 @@ if has('win16') || has('win32') || has('win64')
       " GuiFont! Iosevka\ NF:h14
 
       " https://github.com/epk/SF-Mono-Nerd-Font
-      GuiFont! SFMono\ Nerd\ Font:h14
+      " GuiFont! SFMono\ Nerd\ Font:h14
+
+      GuiFont! JetBrainsMono\ NF:h12
     endif
   endfunction
 
