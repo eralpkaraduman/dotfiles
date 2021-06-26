@@ -98,9 +98,17 @@ set undofile
 
 imap jj <Esc>
 
+" Set Space as leader
+let mapleader=" "
+
+" Mosty windows/neovim-qt related settings below
 if has('win16') || has('win32') || has('win64')
   " Fix fzf.vim on windows
   let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
+
+  " Cycle between neovim-qt tabs
+  nmap <leader>tn :tabnew<CR>
+  nmap <leader>tt :tabnext<CR>
 
   " Set nvim-qt font on windows
   function! SetNvimqtFont()
@@ -118,9 +126,6 @@ if has('win16') || has('win32') || has('win64')
   autocmd VimEnter * call SetNvimqtFont() 
 endif
 
-" Set Space as leader
-let mapleader=" "
-"
 " Fugitive stuff
 nmap <leader>gs :vertical G<CR>
 nmap <leader>gl :Gclog<CR>
