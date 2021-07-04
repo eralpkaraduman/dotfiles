@@ -71,8 +71,10 @@ antigen bundle Aloxaf/fzf-tab
 antigen apply
 
 # Pure Prompt theme
+ZSH_THEME="" #Disalbe oh-my-zsh themes
 # Install pure prompt manually npm install --global pure-prompt
 # Based on https://nicedoc.io/sindresorhus/pure#example
+fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 PURE_CMD_MAX_EXEC_TIME=10
 zstyle :prompt:pure:path color gray
@@ -109,3 +111,5 @@ source ~/.zshrc-private
 
 export PATH=$PATH:/Users/eralpkaraduman/tools/bin
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
