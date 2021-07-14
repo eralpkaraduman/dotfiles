@@ -14,7 +14,7 @@ echo "Updating zsh settings"
 cp ~/.zshrc .
 
 echo "Updating tmux config"
-cp ~/tmux.conf .
+cp ~/.tmux.conf .
 
 echo "Pushing to repository"
 git add .
