@@ -29,6 +29,7 @@ Plug 'prettier/vim-prettier', {
   \ 'branch': 'release/0.x',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
   \ }
+Plug 'ap/vim-css-color'
 call plug#end()
 
 "Coc plugins
