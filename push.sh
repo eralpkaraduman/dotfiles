@@ -13,10 +13,14 @@ cp ~/.config/nvim/coc-settings.json ./nvim
 echo "Updating zsh settings"
 cp ~/.zshrc .
 
+echo "Updating tmux config"
+cp ~/tmux.conf
+
 echo "Pushing to repository"
 git add .
 git clean -df
 git commit -m "Update"
 git push
+
 
 echo "Done"
