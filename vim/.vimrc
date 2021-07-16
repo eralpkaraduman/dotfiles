@@ -30,6 +30,7 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
   \ }
 Plug 'ap/vim-css-color'
+Plug 'digitaltoad/vim-pug'
 call plug#end()
 
 "Coc plugins
