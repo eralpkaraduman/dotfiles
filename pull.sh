@@ -20,6 +20,6 @@ cp ./nvim/init.vim ~/.config/nvim/init.vim
 cp ./nvim/coc-settings.json ~/.config/nvim/coc-settings.json 
 
 echo "Updating tmux config"
-cp ./tmux.conf ~/tmux.conf
+cp ./tmux.conf ~/.tmux.conf
 
 echo "Done"
