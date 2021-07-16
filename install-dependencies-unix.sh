@@ -16,6 +16,12 @@ npm install --global pure-prompt
 echo "Install pure (prompt)"
 (cd $HOME && git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure")
 
+echo "Install tmux"
+apt install tmux
+
+echo "Installing tpm..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 echo "Open nvim and run \":PlugInstall\""
 echo "Install bat https://github.com/sharkdp/bat#installation"
 echo "Install zsh (sudo apt get install zsh)"

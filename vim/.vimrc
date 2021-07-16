@@ -19,8 +19,8 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
 Plug 'godlygeek/tabular', " Remove this if it's not a depency of others?
 "Plug 'gruvbox-community/gruvbox',
 "Plug 'sjl/badwolf',
-"Plug 'joshdick/onedark.vim'
-Plug 'arzg/vim-colors-xcode'
+Plug 'joshdick/onedark.vim'
+"Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-fugitive',
 Plug 'Shougo/vimproc.vim'
 Plug 'idanarye/vim-merginal'
@@ -52,16 +52,15 @@ syntax on
 
 " Color Schemes 
 
-colorscheme xcodedarkhc
+"colorscheme xcodedarkhc
 
 "colorscheme gruvbox
-set background=dark
+"set background=dark
 
 "colorscheme badwolf
 "let g:badwolf_darkgutter = 1
 
-"colorscheme onedark
-
+colorscheme onedark
 
 set incsearch
 set nowrap
@@ -131,6 +130,7 @@ endif
 nmap <leader>gs :vertical G<CR>
 nmap <leader>gl :Gclog<CR>
 nmap <leader>gf :Gclog -- %<CR>
+nmap <leader>gd :Gvdiffsplit<CR>
 " nmap <leader>gl :diffget //3<CR>
 " nmap <leader>gh :diffget //2<CR>
 
