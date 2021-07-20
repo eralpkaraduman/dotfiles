@@ -18,6 +18,7 @@ echo "Install pure (prompt)"
 
 echo "Install tmux"
 apt install tmux
+#brew install tmux
 
 echo "Installing tpm..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
