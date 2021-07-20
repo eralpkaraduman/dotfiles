@@ -15,11 +15,15 @@ echo "Updating zsh settings"
 cp .zshrc ~/.zshrc
 
 echo "Updating neovim settings"
-mkdir -p ./nvim
+mkdir -p ./config/nvim
 cp ./nvim/init.vim ~/.config/nvim/init.vim          
 cp ./nvim/coc-settings.json ~/.config/nvim/coc-settings.json 
 
 echo "Updating tmux config"
 cp .tmux.conf ~/.tmux.conf
+
+echo "Updating kitty config"
+mkidr -p ~/.config/kitty
+cp .kitty.conf ~/.config/kitty/kitty.conf
 
 echo "Done"
