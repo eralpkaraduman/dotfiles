@@ -132,16 +132,15 @@ nmap <leader>gs :vertical G<CR>
 nmap <leader>gl :Gclog<CR>
 nmap <leader>gf :Gclog -- %<CR>
 nmap <leader>gd :Gvdiffsplit<CR>
+nmap <leader>gb :Git blame<CR>
 " nmap <leader>gl :diffget //3<CR>
 " nmap <leader>gh :diffget //2<CR>
 
 " Change between splits fast
-nmap <C-h> <C-w>h
-nmap <C-l> <C-w>l
-nmap <C-S-h> <C-w>h
-nmap <C-S-l> <C-w>l
-nmap <C-S-j> <C-w>j
-nmap <C-S-k> <C-w>k
+nnoremap <leader>h <C-w><C-h>
+nnoremap <leader>l <C-w><C-l>
+nnoremap <leader>j <C-w><C-j>
+nnoremap <leader>k <C-w><C-k>
 
 " This might cause performance issues
 syntax sync fromstart
