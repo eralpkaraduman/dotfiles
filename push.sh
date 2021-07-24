@@ -17,7 +17,7 @@ echo "Updating tmux config"
 cp ~/.tmux.conf .
 
 echo "Updating kitty config"
-cp ~/.config/kitty/kitty.conf ./kitty.conf
+cp ~/.config/kitty/.kitty.conf ./kitty.conf
 
 echo "Pushing to repository"
 git add .
