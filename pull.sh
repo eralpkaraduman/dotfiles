@@ -23,7 +23,7 @@ echo "Updating tmux config"
 cp .tmux.conf ~/.tmux.conf
 
 echo "Updating kitty config"
-mkidr -p ~/.config/kitty
+mkdir -p ~/.config/kitty
 cp .kitty.conf ~/.config/kitty/.kitty.conf
 
 echo "Done"
