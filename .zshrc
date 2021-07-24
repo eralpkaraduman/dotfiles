@@ -44,8 +44,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completionsource ~/.zsh_plugins.sh
 
-eval $(thefuck --alias)
-
 # Antigen
 # install antigen https://github.com/zsh-users/antigen
 source ~/antigen.zsh
@@ -64,7 +62,6 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle command-not-found
-antigen bundle thefuck
 #antigen bundle mafredri/zsh-async
 #antigen bundle lukechilds/zsh-better-npm-completion
 antigen bundle Aloxaf/fzf-tab
