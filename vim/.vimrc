@@ -31,6 +31,7 @@ Plug 'prettier/vim-prettier', {
   \ }
 Plug 'ap/vim-css-color'
 Plug 'digitaltoad/vim-pug'
+Plug 'roxma/vim-tmux-clipboard'
 call plug#end()
 
 "Coc plugins
@@ -71,7 +72,7 @@ set matchtime=3
 set cursorline
 "set mouse=niv
 set mouse=a
-set clipboard=unnamed
+"set clipboard=unnamedplus
 set scrolloff=6
 set autoread
 au FocusGained,BufEnter * :checktime
@@ -101,6 +102,10 @@ imap jj <Esc>
 
 " Set Space as leader
 let mapleader=" "
+
+" use system clipboard
+noremap y "+y
+noremap p "+p
 
 " Mosty windows/neovim-qt related settings below
 if has('win16') || has('win32') || has('win64')

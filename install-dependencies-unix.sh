@@ -33,3 +33,6 @@ echo "Installing tpm..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "Open nvim and run \":PlugInstall\""
+
+echo "Install xclip"
+sudo apt install xclip
