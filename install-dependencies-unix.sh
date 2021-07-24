@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Install nvm https://github.com/nvm-sh/nvm"
+echo "Install node"
 echo "Install zsh (sudo apt install zsh)"
-echo "Install fzf (https://github.com/junegunn/fzf#installation)"
 echo "Install thefuck (https://github.com/nvbn/thefuck#installation)"
 echo "Install ag (sudo apt install silversearcher-ag / brew install the_silver_searcher)"
 echo "Install bat (https://github.com/sharkdp/bat#installation)"
@@ -18,7 +19,7 @@ echo "Installing antigen..."
 echo "Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
-echo "Installing thefuck"
+#echo "Installing thefuck"
 #npm install --global pure-prompt
 
 echo "Install pure (prompt) (try starship maybe?)"
