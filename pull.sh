@@ -8,6 +8,7 @@ git push
 
 echo "Updating vim settings"
 mkdir -p ./vim
+mkdir -p .config/nvim
 cp ./vim/.vimrc ~/.vimrc
 cp ./vim/coc-settings.json ~/.vim/coc-settings.json
 
