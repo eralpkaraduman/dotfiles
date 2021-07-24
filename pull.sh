@@ -25,6 +25,6 @@ cp .tmux.conf ~/.tmux.conf
 
 echo "Updating kitty config"
 mkdir -p ~/.config/kitty
-cp .config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+cp ./.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 echo "Done"
