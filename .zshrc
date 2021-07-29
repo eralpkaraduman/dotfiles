@@ -103,5 +103,12 @@ source ~/.zshrc-private
 
 export PATH=$PATH:/Users/eralpkaraduman/tools/bin
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  # Map caps lock to escape
+  setxkbmap -option caps:escape
+  
+  # Map super key (windows) to ctrl
+  setxkbmap -option altwin:ctrl_win
+fi
