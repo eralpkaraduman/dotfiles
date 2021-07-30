@@ -89,13 +89,6 @@ prompt pure
 # Python
 export PATH="$PATH:/Users/eralpkaraduman/Library/Python/3.8/bin"
 
-# Android
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
 # LOVE2D
 export PATH=$PATH:/Applications/love.app/Contents/MacOS/
 
@@ -105,10 +98,12 @@ export PATH=$PATH:/Users/eralpkaraduman/tools/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+if [ "$(uname 2> /dev/null)" = "Linux" ]; then
   # Map caps lock to escape
   setxkbmap -option caps:escape
   
   # Map super key (windows) to ctrl
   setxkbmap -option altwin:ctrl_win
 fi
+
+[[ -s "/home/eralp/.gvm/scripts/gvm" ]] && source "/home/eralp/.gvm/scripts/gvm"
