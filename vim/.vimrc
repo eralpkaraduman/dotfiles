@@ -64,6 +64,8 @@ syntax on
 
 colorscheme onedark
 
+hi Normal guibg=NONE ctermbg=NONE
+
 set incsearch
 set nowrap
 set nu

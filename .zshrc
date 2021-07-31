@@ -104,6 +104,8 @@ if [ "$(uname 2> /dev/null)" = "Linux" ]; then
   
   # Map super key (windows) to ctrl
   setxkbmap -option altwin:ctrl_win
+  
+  export PATH=$PATH:~/.local/bin
 fi
 
 [[ -s "/home/eralp/.gvm/scripts/gvm" ]] && source "/home/eralp/.gvm/scripts/gvm"

@@ -1,6 +1,6 @@
 {
   // explorer
-  "explorer.file.autoReveal": true,
+  "explorer.file.reveal.auto": true,
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
