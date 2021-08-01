@@ -14,7 +14,7 @@ echo "Updating tmux config"
 cp ~/.tmux.conf .
 
 echo "Updating kitty config a"
-cp ~/.config/kitty/kitty.conf ./config/kitty/kitty.conf
+cp ~/.config/kitty/kitty.conf .config/kitty/kitty.conf
 
 echo "Update images"
 rsync -r ~/.config/images .config/
