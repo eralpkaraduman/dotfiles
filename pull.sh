@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Pulling repository"
-git add .
-git clean -df
-git commit -m "Update"
-git push
+git pull 
 
 echo "Updating vim settings"
 mkdir -p ./vim
