@@ -27,4 +27,7 @@ echo "Updating kitty config"
 mkdir -p ~/.config/kitty
 cp ./.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
+echo "Update images"
+rsync -r ~/.config/images .config/images
+
 echo "Done"
