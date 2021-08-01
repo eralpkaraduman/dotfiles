@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
 echo "Updating vim settings"
-mkdir -p ./vim
-cp ~/.vimrc ./vim
-cp ~/.vim/coc-settings.json ./vim
+cp ~/.vimrc ./vimrc
 
 echo "Updating neovim settings"
-mkdir -p ./nvim
-cp ~/.config/nvim/init.vim ./nvim
-cp ~/.config/nvim/coc-settings.json ./nvim
+cp ~/.config/nvim/init.vim .config/nvim/init.vim
+cp ~/.config/nvim/coc-settings.json .config/nvim/coc-settings.json
 
 echo "Updating zsh settings"
 cp ~/.zshrc .
