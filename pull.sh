@@ -5,10 +5,11 @@ git pull
 
 echo "Updating vim settings"
 mkdir -p ~/.vim
-cp ./vim/.vimrc ~/.vimrc
+cp .vimrc ~/.vimrc
+chmod +w ~/.vim/coc-settings.json
 cp .config/nvim/coc-settings.json ~/.vim/coc-settings.json
 # Make readonly, so we remember to update coc-settings in nvim instead
-chmod 0444 ~/.vim/coc-settings.json
+chmod -w ~/.vim/coc-settings.json
 
 echo "Updating zsh settings"
 cp .zshrc ~/.zshrc
