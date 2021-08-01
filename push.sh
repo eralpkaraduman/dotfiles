@@ -19,6 +19,9 @@ cp ~/.tmux.conf .
 echo "Updating kitty config"
 cp ~/.config/kitty/kitty.conf ./config/kitty/kitty.conf
 
+echo "Update images"
+cp -R ~/.config/images .config/images
+
 echo "Pushing to repository"
 git add .
 git clean -df
