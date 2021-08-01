@@ -6,6 +6,7 @@ echo "Install zsh (sudo apt install zsh)"
 echo "Install thefuck (https://github.com/nvbn/thefuck#installation)"
 echo "Install ag (sudo apt install silversearcher-ag / brew install the_silver_searcher)"
 echo "Install bat (https://github.com/sharkdp/bat#installation)"
+echo "Set alfred preferences folder to folder here"
 echo "Installing vim-plug..."
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
