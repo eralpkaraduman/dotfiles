@@ -17,7 +17,7 @@ echo "Updating kitty config"
 cp ~/.config/kitty/kitty.conf ./config/kitty/kitty.conf
 
 echo "Update images"
-rsync -r ~/.config/images .config/images
+rsync -r ~/.config/images .config/
 
 echo "Pushing to repository"
 git add .
