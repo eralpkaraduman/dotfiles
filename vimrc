@@ -108,6 +108,7 @@ let mapleader=" "
 " use system clipboard
 noremap y "+y
 noremap p "+p
+noremap x "+x
 
 " Mosty windows/neovim-qt related settings below
 if has('win16') || has('win32') || has('win64')
@@ -277,7 +278,8 @@ endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+  inoremap <silent><expr> <leader><tab> coc#refresh()
+  " inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif

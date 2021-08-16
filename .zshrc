@@ -94,7 +94,8 @@ export PATH=$PATH:/Applications/love.app/Contents/MacOS/
 
 source ~/.zshrc-private
 
-export PATH=$PATH:/Users/eralpkaraduman/tools/bin
+export PATH=$PATH:$HOME/tools/bin
+export PATH=$PATH:$HOME/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -109,3 +110,9 @@ if [ "$(uname 2> /dev/null)" = "Linux" ]; then
 fi
 
 [[ -s "/home/eralp/.gvm/scripts/gvm" ]] && source "/home/eralp/.gvm/scripts/gvm"
+
+PATH="/home/eralp/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/eralp/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/eralp/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/eralp/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/eralp/perl5"; export PERL_MM_OPT;
