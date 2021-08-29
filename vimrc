@@ -102,6 +102,13 @@ set undofile
 
 imap jj <Esc>
 
+" hide numbers on terminal
+autocmd TermOpen * setlocal nonumber norelativenumber
+
+" exit terminal mode with esc
+tnoremap <Esc> <C-\><C-n>
+tnoremap jj <C-\><C-n>
+
 " Set Space as leader
 let mapleader=" "
 
@@ -114,10 +121,6 @@ noremap x "+x
 if has('win16') || has('win32') || has('win64')
   " Fix fzf.vim on windows
   let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
-
-  " Cycle between neovim-qt tabs
-  nmap <leader>tn :tabnew<CR>
-  nmap <leader>tt :tabnext<CR>
 
   " Set nvim-qt font on windows
   function! SetNvimqtFont()
