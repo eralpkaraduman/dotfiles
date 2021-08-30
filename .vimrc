@@ -100,10 +100,6 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 
-
-" hide numbers on terminal
-autocmd TermOpen * setlocal nonumber norelativenumber
-
 " exit terminal mode with esc
 " tnoremap <Esc> <C-\><C-n>
 " tnoremap jj <C-\><C-n>
@@ -111,6 +107,9 @@ imap jj <Esc>
 
 " Set Space as leader
 let mapleader=" "
+
+" hide numbers on terminal
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 " use system clipboard
 noremap y "+y
