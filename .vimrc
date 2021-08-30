@@ -1,8 +1,8 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-surround',
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
@@ -100,6 +100,13 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 
+
+" hide numbers on terminal
+autocmd TermOpen * setlocal nonumber norelativenumber
+
+" exit terminal mode with esc
+" tnoremap <Esc> <C-\><C-n>
+" tnoremap jj <C-\><C-n>
 imap jj <Esc>
 
 " Set Space as leader
@@ -108,15 +115,12 @@ let mapleader=" "
 " use system clipboard
 noremap y "+y
 noremap p "+p
+noremap x "+x
 
 " Mosty windows/neovim-qt related settings below
 if has('win16') || has('win32') || has('win64')
   " Fix fzf.vim on windows
   let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
-
-  " Cycle between neovim-qt tabs
-  nmap <leader>tn :tabnew<CR>
-  nmap <leader>tt :tabnext<CR>
 
   " Set nvim-qt font on windows
   function! SetNvimqtFont()
@@ -277,7 +281,8 @@ endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+  inoremap <silent><expr> <leader><tab> coc#refresh()
+  " inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
