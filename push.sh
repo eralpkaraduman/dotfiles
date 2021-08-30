@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Updating vim settings"
-cp ~/.vimrc ./vimrc
+cp ~/.vimrc .vimrc
 
 echo "Updating neovim settings"
 cp ~/.config/nvim/init.vim .config/nvim/init.vim
