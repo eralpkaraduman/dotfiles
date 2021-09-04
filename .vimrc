@@ -32,6 +32,7 @@ Plug 'prettier/vim-prettier', {
 Plug 'ap/vim-css-color'
 Plug 'digitaltoad/vim-pug'
 Plug 'roxma/vim-tmux-clipboard'
+Plug 'cweagans/vim-taskpaper'
 call plug#end()
 
 "Coc plugins
