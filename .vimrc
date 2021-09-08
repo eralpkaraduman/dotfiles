@@ -138,6 +138,10 @@ if has('win16') || has('win32') || has('win64')
   autocmd VimEnter * call SetNvimqtFont() 
 endif
 
+" Taskpaper
+autocmd FileType taskpaper setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType taskpaper set foldmethod=syntax
+
 " Fugitive stuff
 nmap <leader>gs :vertical G<CR>
 nmap <leader>gl :Gclog<CR>

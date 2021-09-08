@@ -39,6 +39,9 @@ setopt prompt_subst
 # Visual Studio Code
 export REACT_EDITOR=nvim
 
+# sudoedit editor
+export SUDO_EDITOR="nvim"
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
