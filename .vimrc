@@ -160,7 +160,11 @@ nnoremap <leader>k <C-w><C-k>
 " This might cause performance issues
 syntax sync fromstart
 
-nmap <C-p> :GFiles --exclude-standard --others --cached<CR>
+" fzf.vim's GFiles but with cwd (for monorepos, see: https://github.com/junegunn/fzf.vim/pull/1160#issuecomment-801601546)
+command! -bang -nargs=? GFilesCwd
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(<q-args> == '?' ? { 'dir': getcwd(), 'placeholder': '' } : { 'dir': getcwd() }), <bang>0)
+
+nmap <C-p> :GFilesCwd --exclude-standard --others --cached<CR>
 nmap <C-e> :Buffers<CR>
 
 " IndentLine stuff
