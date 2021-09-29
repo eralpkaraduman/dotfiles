@@ -125,6 +125,8 @@ export PATH=$PATH:$HOME/bin
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ "$(uname 2> /dev/null)" = "Linux" ]; then
+  # Keymaps below are moved to $HOME/.profile
+
   # Map caps lock to escape
   setxkbmap -option caps:escape
   

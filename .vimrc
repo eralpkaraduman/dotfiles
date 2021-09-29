@@ -86,8 +86,9 @@ set smartindent
 set ignorecase
 " set termguicolors
 set smartcase
-set signcolumn=yes
-set colorcolumn=100
+set signcolumn=no
+" set signcolumn=yes
+" set colorcolumn=100
 set notimeout
 
 let g:airline_powerline_fonts = 1
