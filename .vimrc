@@ -11,14 +11,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'pangloss/vim-javascript'
 
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-"
-"Plug 'HerringtonDarkholme/yats.vim'
-Plug 'yuezk/vim-js'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
+
+Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'yuezk/vim-js'
 "Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
-Plug 'godlygeek/tabular', " Remove this if it's not a depency of others?
 "Plug 'gruvbox-community/gruvbox',
 Plug 'sjl/badwolf',
 "Plug 'joshdick/onedark.vim'
@@ -99,7 +98,7 @@ let g:bufferline_echo = 0
 "let g:airline_theme='minimalist'
 let g:airline_theme='badwolf'
 "let g:airline#extensions#branch#empty_message = 'No VCS :('
-let g:airline#extensions#branch#displayed_head_limit = 25
+let g:airline#extensions#branch#displayed_head_limit = 15
 let g:airline#extensions#branch#format = 2
 "let g:airline_disable_statusline = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -187,7 +186,7 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>0 <Plug>AirlineSelectTab0
 
 " This might cause performance issues
-"syntax sync fromstart
+syntax sync fromstart
 
 " fzf.vim's GFiles but with cwd (for monorepos, see: https://github.com/junegunn/fzf.vim/pull/1160#issuecomment-801601546)
 command! -bang -nargs=? GFilesCwd
@@ -319,7 +318,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
+" Use <leader-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <leader><tab> coc#refresh()
   " inoremap <silent><expr> <c-space> coc#refresh()
