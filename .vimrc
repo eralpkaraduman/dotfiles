@@ -10,16 +10,18 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'pangloss/vim-javascript'
-"Plug 'leafgarland/typescript-vim'
-"Plug 'peitalin/vim-jsx-typescript'
-Plug 'HerringtonDarkholme/yats.vim'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+"
+"Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+"Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
 Plug 'godlygeek/tabular', " Remove this if it's not a depency of others?
 "Plug 'gruvbox-community/gruvbox',
-"Plug 'sjl/badwolf',
-Plug 'joshdick/onedark.vim'
+Plug 'sjl/badwolf',
+"Plug 'joshdick/onedark.vim'
 "Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-fugitive',
 Plug 'Shougo/vimproc.vim'
@@ -60,10 +62,10 @@ syntax on
 "colorscheme gruvbox
 "set background=dark
 
-"colorscheme badwolf
-"let g:badwolf_darkgutter = 1
+colorscheme badwolf
+let g:badwolf_darkgutter = 1
 
-colorscheme onedark
+"colorscheme onedark
 
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -92,7 +94,19 @@ set signcolumn=no
 set notimeout
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='minimalist'
+let g:airline_skip_empty_sections = 1
+let g:bufferline_echo = 0
+"let g:airline_theme='minimalist'
+let g:airline_theme='badwolf'
+"let g:airline#extensions#branch#empty_message = 'No VCS :('
+let g:airline#extensions#branch#displayed_head_limit = 25
+let g:airline#extensions#branch#format = 2
+"let g:airline_disable_statusline = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_section_z = ''
+let g:airline_section_y = ''
 
 " vim-jsx-pretty options
 let g:vim_jsx_pretty_highlight_close_tag = 1
@@ -145,7 +159,8 @@ autocmd FileType taskpaper setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType taskpaper set foldmethod=syntax
 
 " Fugitive stuff
-nmap <leader>gs :vertical G<CR>
+" nmap <leader>gs :vertical G<CR>
+nmap <leader>gs :belowright G<CR>
 nmap <leader>gl :Gclog<CR>
 nmap <leader>gf :Gclog -- %<CR>
 nmap <leader>gd :Gvdiffsplit<CR>
@@ -207,6 +222,9 @@ set tabstop=2
 set shiftwidth=2
 " Use spaces when pressing <tab> key
 set expandtab
+
+" set filetypes as typescriptreact (setting of vim-jsx-typescript)
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " Line moving
 nnoremap  <A-k> :m .-2<CR>==
