@@ -14,12 +14,12 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'peitalin/vim-jsx-typescript'
 
-Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'HerringtonDarkholme/yats.vim'
 "Plug 'yuezk/vim-js'
 "Plug 'maxmellon/vim-jsx-pretty'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
+"Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
 "Plug 'gruvbox-community/gruvbox',
-Plug 'sjl/badwolf',
+Plug 'sjl/badwolf'
 "Plug 'joshdick/onedark.vim'
 "Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-fugitive',
@@ -34,11 +34,18 @@ Plug 'ap/vim-css-color'
 Plug 'digitaltoad/vim-pug'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'cweagans/vim-taskpaper'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 call plug#end()
+
+
+" Install nvim-tresitter parsers if not installed
+" TSInstall tsx
+" TSInstall typescript
+" TSInstall json
 
 "Coc plugins
 let g:coc_global_extensions = [
-   \ 'coc-pairs',
+   "\ 'coc-pairs',
    \ 'coc-html',
    \ 'coc-highlight',
    \ 'coc-git',
@@ -49,7 +56,8 @@ let g:coc_global_extensions = [
    \ 'coc-lists',
    \ 'coc-css',
    \ 'coc-explorer',
-   \ 'coc-prettier'
+   \ 'coc-prettier',
+   \ 'coc-styled-components',
    \ ]
 
 syntax on
@@ -91,6 +99,7 @@ set signcolumn=no
 " set signcolumn=yes
 " set colorcolumn=100
 "set notimeout
+set timeoutlen=300
 
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
@@ -356,21 +365,21 @@ function! s:show_documentation()
 endfunction
 
 " Show documentation on K (based on: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim )
-" nnoremap <silent> K :call CocAction('doHover')<CR>
+nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " Show documentation automatically
-" function! ShowDocIfNoDiagnostic(timer_id)
-"   if (coc#float#has_scroll() == 0 && coc#status() != '')
-"     silent call CocActionAsync('doHover')
-"   endif
-" endfunction
-" 
-" function! s:show_hover_doc()
-"   call timer_start(500, 'ShowDocIfNoDiagnostic')
-" endfunction
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_scroll() == 0 && coc#status() != '')
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
 
-" autocmd CursorHoldI * :call <SID>show_hover_doc()
-" autocmd CursorHold * :call <SID>show_hover_doc()
+function! s:show_hover_doc()
+  call timer_start(500, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
