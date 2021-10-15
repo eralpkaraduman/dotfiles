@@ -9,19 +9,7 @@ Plug 'dbakker/vim-projectroot'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'pangloss/vim-javascript'
-
-"Plug 'leafgarland/typescript-vim'
-"Plug 'peitalin/vim-jsx-typescript'
-
-"Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'yuezk/vim-js'
-"Plug 'maxmellon/vim-jsx-pretty'
-"Plug 'styled-components/vim-styled-components', { 'branch': 'main' },
-"Plug 'gruvbox-community/gruvbox',
 Plug 'sjl/badwolf'
-"Plug 'joshdick/onedark.vim'
-"Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-fugitive',
 Plug 'Shougo/vimproc.vim'
 Plug 'idanarye/vim-merginal'
@@ -37,11 +25,8 @@ Plug 'cweagans/vim-taskpaper'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 call plug#end()
 
-
 " Install nvim-tresitter parsers if not installed
-" TSInstall tsx
-" TSInstall typescript
-" TSInstall json
+" TSInstall tsx typescript json
 
 "Coc plugins
 let g:coc_global_extensions = [
