@@ -7,9 +7,8 @@ echo "Install tldr"
 echo "Install ag (sudo apt install silversearcher-ag / brew install the_silver_searcher)"
 echo "Install bat (https://github.com/sharkdp/bat#installation)"
 echo "Set alfred preferences folder to folder here"
-echo "Installing vim-plug..."
-
 echo "Set mac keyboard layout to ABC"
+echo "Installing vim-plug..."
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -38,3 +37,10 @@ echo "Open nvim and run \":PlugInstall\""
 
 echo "Install xclip"
 sudo apt install xclip
+
+# Set key repeat speed faster than maximum on match
+# defaults write -g InitialKeyRepeat -int 1634073490000
+# defaults write -g KeyRepeat -int 1
+
+# Disable press and hold for special characters on mac
+# defaults write -g ApplePressAndHoldEnabled -bool false 
