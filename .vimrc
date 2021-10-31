@@ -101,9 +101,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_section_z = ''
 let g:airline_section_y = ''
 
-" vim-jsx-pretty options
-let g:vim_jsx_pretty_highlight_close_tag = 1
-
 set noswapfile
 set nobackup
 " create this directory

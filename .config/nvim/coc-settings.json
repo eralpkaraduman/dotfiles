@@ -1,14 +1,21 @@
 {
   // explorer
   "explorer.file.reveal.auto": true,
-  "explorer.width": 30,
+  "explorer.width": 60,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
   "explorer.keyMappings.global": {
     "<cr>": ["expandable?", "expand", "open"],
     "v": "open:vsplit"
   },
-  "explorer.file.showHiddenFiles": true,
+  "explorer.file.showHiddenFiles": false,
+  "explorer.file.hiddenRules": {
+    "filenames": [
+      "node_modules", ".git"
+    ],
+    "patternMatches": ["^\\."]
+  },
+  // generic
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
     "typescriptreact",

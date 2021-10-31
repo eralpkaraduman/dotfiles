@@ -148,3 +148,6 @@ PERL_MM_OPT="INSTALL_BASE=/home/eralp/perl5"; export PERL_MM_OPT;
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# Add bin from home to path
+export PATH=$PATH:~/bin
