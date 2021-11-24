@@ -6,7 +6,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
-Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-rooter'
+" Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/badwolf'
@@ -30,7 +31,7 @@ call plug#end()
 
 "Coc plugins
 let g:coc_global_extensions = [
-   "\ 'coc-pairs',
+   \ 'coc-pairs',
    \ 'coc-html',
    \ 'coc-highlight',
    \ 'coc-git',
@@ -186,24 +187,24 @@ command! -bang -nargs=? GFilesCwd
 nmap <C-p> :GFilesCwd --exclude-standard --others --cached<CR>
 nmap <C-e> :Buffers<CR>
 
-" IndentLine stuff
-let g:indentLine_fileTypeExclude = ['json', 'md', 'coc-explorer']
-" Disable indentline for coc-explorer
-function! IndentLineExclude()
-  if &filetype == 'coc-explorer'
-    IndentLinesDisable
-    LeadingSpaceDisable
-  endif
-endfunction
+"" IndentLine stuff
+"let g:indentLine_fileTypeExclude = ['json', 'md', 'coc-explorer']
+"" Disable indentline for coc-explorer
+"function! IndentLineExclude()
+"  if &filetype == 'coc-explorer'
+"    IndentLinesDisable
+"    LeadingSpaceDisable
+"  endif
+"endfunction
+"
+"augroup indentline_exclude
+"  autocmd!
+"  autocmd WinEnter,BufEnter,FileType * call IndentLineExclude()
+"augroup end
 
-augroup indentline_exclude
-  autocmd!
-  autocmd WinEnter,BufEnter,FileType * call IndentLineExclude()
-augroup end
-
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+"let g:indentLine_leadingSpaceEnabled = 1
+"let g:indentLine_leadingSpaceChar = '·'
+"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 " For scss files
 autocmd FileType scss setl iskeyword+=@-@
@@ -253,14 +254,18 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Search Stuff
 " Install bat for syntax highlighted previews: https://github.com/sharkdp/bat#installation
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \                         : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%', '?'),
-  \                 <bang>0)
 
-nnoremap <silent> <C-f> :ProjectRootExe Ag<cr>
-" nnoremap <silent> <C-f>f :<C-u>ProjectRootExe Ag <cr>
+let g:rooter_patterns = ['package.json','.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile']
+
+function! AgFzF(query)
+  call fzf#vim#ag(a:query, fzf#vim#with_preview({'options': '--delimiter : --nth 2..'}, 'up:80%'))
+endfunction
+
+command! -bang -nargs=* Ag call AgFzF(<q-args>)
+
+nnoremap <silent> <C-f> :Ag<cr>
+" nnoremap <silent> <C-f> :ProjectRootExe Ag<cr>
+" nnoremap <silent> <C-f>f :<C-u>ProjectRootExe Ag <cr>g
 " vnoremap <silent> <C-f>f y:ProjectRootExe Ag <C-r>=fnameescape(@")<CR><CR>
 
 " coc.nvim sample configuration below based on: https://github.com/neoclide/coc.nvim
@@ -485,7 +490,7 @@ let g:coc_explorer_global_presets = {
 \   }
 \ }
 
-nmap <space>e :CocCommand explorer<CR>
+nmap <space>e :CocCommand explorer --root-strategies keep<CR>
 " nmap <space>f :CocCommand explorer --preset floating<CR>
 
 " Close vim if last remaining window is coc-explorer
