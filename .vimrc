@@ -23,30 +23,40 @@ Plug 'ap/vim-css-color'
 Plug 'digitaltoad/vim-pug'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'cweagans/vim-taskpaper'
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+  "Install nvim-tresitter parsers if not installed
+  "`:TSInstall tsx typescript json`
+
 Plug 'tpope/vim-commentary'
 Plug 'kqito/vim-easy-replace'
+
+Plug 'mlaursen/vim-react-snippets'
+  "Install pip (required by nvim snippets)
+  "`sudo apt install python3-pip`
+  "Install pynvim (required by nvim snippets)
+  "`python3 -m pip install --user --upgrade pynvim`
+
 call plug#end()
 
-" Install nvim-tresitter parsers if not installed
-" TSInstall tsx typescript json
 
 "Coc plugins
 let g:coc_global_extensions = [
-   \ 'coc-pairs',
-   \ 'coc-html',
-   \ 'coc-highlight',
-   \ 'coc-git',
-   \ 'coc-eslint',
-   \ 'coc-tsserver',
-   \ 'coc-json',
-   \ 'coc-css',
-   \ 'coc-lists',
-   \ 'coc-css',
-   \ 'coc-explorer',
-   \ 'coc-prettier',
-   \ 'coc-styled-components',
-   \ ]
+\ 'coc-pairs',
+\ 'coc-html',
+\ 'coc-highlight',
+\ 'coc-git',
+\ 'coc-eslint',
+\ 'coc-tsserver',
+\ 'coc-json',
+\ 'coc-css',
+\ 'coc-lists',
+\ 'coc-css',
+\ 'coc-explorer',
+\ 'coc-prettier',
+\ 'coc-styled-components',
+\ 'coc-snippets',
+\ ]
 
 syntax on
 

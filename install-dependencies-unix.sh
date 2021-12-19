@@ -44,3 +44,11 @@ sudo apt install xclip
 
 # Disable press and hold for special characters on mac
 # defaults write -g ApplePressAndHoldEnabled -bool false 
+
+echo "Install pip (required by nvim snippets)"
+sudo apt install python3-pip
+
+
+echo "Install pynvim (required by nvim snippets)"
+python3 -m pip install --user --upgrade pynvim
+
