@@ -7,9 +7,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'airblade/vim-rooter'
-" Plug 'Yggdroot/indentLine'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/badwolf'
 Plug 'tpope/vim-fugitive',
 Plug 'Shougo/vimproc.vim'
@@ -77,6 +76,7 @@ hi Normal guibg=NONE ctermbg=NONE
 set incsearch
 set nowrap
 set nu
+set relativenumber
 set showmatch
 set matchtime=3
 set cursorline
@@ -99,20 +99,22 @@ set signcolumn=no
 "set notimeout
 set timeoutlen=300
 
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
-let g:bufferline_echo = 0
-"let g:airline_theme='minimalist'
-let g:airline_theme='badwolf'
-"let g:airline#extensions#branch#empty_message = 'No VCS :('
-let g:airline#extensions#branch#displayed_head_limit = 15
-let g:airline#extensions#branch#format = 2
-"let g:airline_disable_statusline = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_section_z = ''
-let g:airline_section_y = ''
+:command! W w
+
+"let g:airline_powerline_fonts = 1
+"let g:airline_skip_empty_sections = 1
+"let g:bufferline_echo = 0
+""let g:airline_theme='minimalist'
+"let g:airline_theme='badwolf'
+""let g:airline#extensions#branch#empty_message = 'No VCS :('
+"let g:airline#extensions#branch#displayed_head_limit = 15
+"let g:airline#extensions#branch#format = 2
+""let g:airline_disable_statusline = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'unique_tail'
+""let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+"let g:airline_section_z = ''
+"let g:airline_section_y = ''
 
 set noswapfile
 set nobackup
@@ -177,17 +179,17 @@ nnoremap <leader>l <C-w><C-l>
 nnoremap <leader>j <C-w><C-j>
 nnoremap <leader>k <C-w><C-k>
 
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>0 <Plug>AirlineSelectTab0
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+" nmap <leader>1 <Plug>AirlineSelectTab1
+" nmap <leader>2 <Plug>AirlineSelectTab2
+" nmap <leader>3 <Plug>AirlineSelectTab3
+" nmap <leader>4 <Plug>AirlineSelectTab4
+" nmap <leader>5 <Plug>AirlineSelectTab5
+" nmap <leader>6 <Plug>AirlineSelectTab6
+" nmap <leader>7 <Plug>AirlineSelectTab7
+" nmap <leader>8 <Plug>AirlineSelectTab8
+" nmap <leader>9 <Plug>AirlineSelectTab9
+" nmap <leader>0 <Plug>AirlineSelectTab0
 
 " This might cause performance issues
 syntax sync fromstart
