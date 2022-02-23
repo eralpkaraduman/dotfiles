@@ -10,9 +10,7 @@
   },
   "explorer.file.showHiddenFiles": false,
   "explorer.file.hiddenRules": {
-    "filenames": [
-      "node_modules", ".git"
-    ],
+    "filenames": ["node_modules", ".git"],
     "patternMatches": ["^\\."]
   },
   // generic
@@ -20,7 +18,6 @@
     "typescript",
     "typescriptreact",
     "javascript",
-    "javascriptreact",
-    "json"
+    "javascriptreact"
   ]
 }

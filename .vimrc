@@ -36,6 +36,8 @@ Plug 'mlaursen/vim-react-snippets'
   "Install pynvim (required by nvim snippets)
   "`python3 -m pip install --user --upgrade pynvim`
 
+Plug 'udalov/kotlin-vim'
+
 call plug#end()
 
 
@@ -55,6 +57,7 @@ let g:coc_global_extensions = [
 \ 'coc-prettier',
 \ 'coc-styled-components',
 \ 'coc-snippets',
+\ 'coc-spell-checker',
 \ ]
 
 syntax on
@@ -66,12 +69,13 @@ syntax on
 "colorscheme gruvbox
 "set background=dark
 
-colorscheme badwolf
-let g:badwolf_darkgutter = 1
 
 "colorscheme onedark
 
 hi Normal guibg=NONE ctermbg=NONE
+
+colorscheme badwolf
+let g:badwolf_darkgutter = 1
 
 set incsearch
 set nowrap
@@ -126,6 +130,9 @@ set undofile
 " tnoremap <Esc> <C-\><C-n>
 " tnoremap jj <C-\><C-n>
 imap jj <Esc>
+
+nmap H ^
+nmap L $
 
 " Set Space as leader
 let mapleader=" "

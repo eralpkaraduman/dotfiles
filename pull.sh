@@ -30,4 +30,7 @@ echo "Update images"
 mkdir -p ~/.config/images
 rsync -r .config/images ~/.config
 
+echo "Updating ideavim config"
+cp .ideavimrc ~/.ideavimrc
+
 echo "Done"

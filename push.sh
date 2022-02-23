@@ -19,6 +19,9 @@ cp ~/.config/kitty/kitty.conf .config/kitty/kitty.conf
 echo "Update images"
 rsync -r ~/.config/images .config/
 
+echo "Updating ideavim config"
+cp ~/.ideavimrc .
+
 echo "Pushing to repository"
 git add .
 git clean -df
