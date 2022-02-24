@@ -36,8 +36,6 @@ Plug 'mlaursen/vim-react-snippets'
   "Install pynvim (required by nvim snippets)
   "`python3 -m pip install --user --upgrade pynvim`
 
-Plug 'udalov/kotlin-vim'
-
 call plug#end()
 
 

@@ -19,5 +19,8 @@
     "typescriptreact",
     "javascript",
     "javascriptreact"
+  ],
+  "cSpell.userWords": [
+    "mantine"
   ]
 }
