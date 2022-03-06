@@ -29,6 +29,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 
 Plug 'tpope/vim-commentary'
 Plug 'kqito/vim-easy-replace'
+  " <leader>rc / <leader>ra
 
 Plug 'mlaursen/vim-react-snippets'
   "Install pip (required by nvim snippets)
@@ -60,18 +61,6 @@ let g:coc_global_extensions = [
 
 syntax on
 
-" Color Schemes 
-
-"colorscheme xcodedarkhc
-
-"colorscheme gruvbox
-"set background=dark
-
-
-"colorscheme onedark
-
-hi Normal guibg=NONE ctermbg=NONE
-
 colorscheme badwolf
 let g:badwolf_darkgutter = 1
 
@@ -102,27 +91,16 @@ set signcolumn=no
 set timeoutlen=300
 
 :command! W w
-
-"let g:airline_powerline_fonts = 1
-"let g:airline_skip_empty_sections = 1
-"let g:bufferline_echo = 0
-""let g:airline_theme='minimalist'
-"let g:airline_theme='badwolf'
-""let g:airline#extensions#branch#empty_message = 'No VCS :('
-"let g:airline#extensions#branch#displayed_head_limit = 15
-"let g:airline#extensions#branch#format = 2
-""let g:airline_disable_statusline = 1
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#formatter = 'unique_tail'
-""let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-"let g:airline_section_z = ''
-"let g:airline_section_y = ''
+:command! WQ wq
 
 set noswapfile
 set nobackup
 " create this directory
 set undodir=~/.vim/undodir
 set undofile
+
+" CTRL-N and CTRL-P will be automatically bound to next-history
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " exit terminal mode with esc
 " tnoremap <Esc> <C-\><C-n>
@@ -143,31 +121,6 @@ noremap y "+y
 noremap p "+p
 noremap x "+x
 
-" Mosty windows/neovim-qt related settings below
-if has('win16') || has('win32') || has('win64')
-  " Fix fzf.vim on windows
-  let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
-
-  " Set nvim-qt font on windows
-  function! SetNvimqtFont()
-    if exists(':GuiFont')
-      " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka/Regular/complete
-      " GuiFont! Iosevka\ NF:h14
-
-      " https://github.com/epk/SF-Mono-Nerd-Font
-      " GuiFont! SFMono\ Nerd\ Font:h14
-
-      GuiFont! JetBrainsMono\ NF:h12
-    endif
-  endfunction
-
-  autocmd VimEnter * call SetNvimqtFont() 
-endif
-
-" Taskpaper
-autocmd FileType taskpaper setlocal tabstop=4 shiftwidth=4 softtabstop=4
-autocmd FileType taskpaper set foldmethod=syntax
-
 " Fugitive stuff
 " nmap <leader>gs :vertical G<CR>
 nmap <leader>gs :belowright G<CR>
@@ -184,20 +137,10 @@ nnoremap <leader>l <C-w><C-l>
 nnoremap <leader>j <C-w><C-j>
 nnoremap <leader>k <C-w><C-k>
 
-" let g:airline#extensions#tabline#buffer_idx_mode = 1
-" nmap <leader>1 <Plug>AirlineSelectTab1
-" nmap <leader>2 <Plug>AirlineSelectTab2
-" nmap <leader>3 <Plug>AirlineSelectTab3
-" nmap <leader>4 <Plug>AirlineSelectTab4
-" nmap <leader>5 <Plug>AirlineSelectTab5
-" nmap <leader>6 <Plug>AirlineSelectTab6
-" nmap <leader>7 <Plug>AirlineSelectTab7
-" nmap <leader>8 <Plug>AirlineSelectTab8
-" nmap <leader>9 <Plug>AirlineSelectTab9
-" nmap <leader>0 <Plug>AirlineSelectTab0
 
 " This might cause performance issues
-syntax sync fromstart
+" syntax sync fromstart
+
 
 " fzf.vim's GFiles but with cwd (for monorepos, see: https://github.com/junegunn/fzf.vim/pull/1160#issuecomment-801601546)
 command! -bang -nargs=? GFilesCwd
@@ -281,6 +224,7 @@ function! AgFzF(query)
 endfunction
 
 command! -bang -nargs=* Ag call AgFzF(<q-args>)
+
 
 nnoremap <silent> <C-f> :Ag<cr>
 " nnoremap <silent> <C-f> :ProjectRootExe Ag<cr>
