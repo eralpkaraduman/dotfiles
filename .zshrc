@@ -40,7 +40,7 @@ setopt prompt_subst
 export REACT_EDITOR=nvim
 
 # sudoedit editor
-export SUDO_EDITOR="nvim"
+export SUDO_EDITOR=nvim
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

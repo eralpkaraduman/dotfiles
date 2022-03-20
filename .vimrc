@@ -59,6 +59,8 @@ let g:coc_global_extensions = [
 \ 'coc-spell-checker',
 \ ]
 
+let g:coc_node_path = '~/.nvm/versions/node/v16.14.1/bin/node'
+
 syntax on
 
 colorscheme badwolf
