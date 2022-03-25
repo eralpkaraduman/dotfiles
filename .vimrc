@@ -109,8 +109,10 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " tnoremap jj <C-\><C-n>
 imap jj <Esc>
 
-nmap H ^
-nmap L $
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
 
 " Set Space as leader
 let mapleader=" "
