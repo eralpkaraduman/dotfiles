@@ -25,7 +25,7 @@ Plug 'cweagans/vim-taskpaper'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
   "Install nvim-tresitter parsers if not installed
-  "`:TSInstall tsx typescript json`
+  "`:TSInstall tsx typescript json dart`
 
 Plug 'tpope/vim-commentary'
 Plug 'kqito/vim-easy-replace'
@@ -57,6 +57,7 @@ let g:coc_global_extensions = [
 \ 'coc-styled-components',
 \ 'coc-snippets',
 \ 'coc-spell-checker',
+\ 'coc-flutter',
 \ ]
 
 let g:coc_node_path = '~/.nvm/versions/node/v16.14.1/bin/node'
