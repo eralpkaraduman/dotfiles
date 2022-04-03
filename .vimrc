@@ -7,9 +7,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'airblade/vim-rooter'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-Plug 'sjl/badwolf'
+Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-fugitive',
 Plug 'Shougo/vimproc.vim'
 Plug 'idanarye/vim-merginal'
@@ -24,15 +22,15 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'cweagans/vim-taskpaper'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-  "Install nvim-tresitter parsers if not installed
-  "`:TSInstall tsx typescript json dart`
+  "Install nvim-tresitter parsers manually if not installed
+  "`:TSInstall tsx typescript json`
 
 Plug 'tpope/vim-commentary'
 Plug 'kqito/vim-easy-replace'
   " <leader>rc / <leader>ra
 
 Plug 'mlaursen/vim-react-snippets'
-  "Install pip (required by nvim snippets)
+  "Install pip (required y nvim snippets)
   "`sudo apt install python3-pip`
   "Install pynvim (required by nvim snippets)
   "`python3 -m pip install --user --upgrade pynvim`
@@ -57,15 +55,30 @@ let g:coc_global_extensions = [
 \ 'coc-styled-components',
 \ 'coc-snippets',
 \ 'coc-spell-checker',
-\ 'coc-flutter',
+\ 'coc-flutter-tools',
 \ ]
 
 let g:coc_node_path = '~/.nvm/versions/node/v16.14.1/bin/node'
 
 syntax on
+colorscheme onedark
 
-colorscheme badwolf
-let g:badwolf_darkgutter = 1
+"Colorscheme Settings: (onedark.vim)
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 
 set incsearch
 set nowrap
@@ -462,4 +475,4 @@ nmap <space>e :CocCommand explorer --root-strategies keep<CR>
 " nmap <space>f :CocCommand explorer --preset floating<CR>
 
 " Close vim if last remaining window is coc-explorer
-" autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
