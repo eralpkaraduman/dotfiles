@@ -35,7 +35,6 @@ Plug 'mlaursen/vim-react-snippets'
   "`python3 -m pip install --user --upgrade pynvim`
 
 Plug 'dart-lang/dart-vim-plugin'
-
 call plug#end()
 
 
@@ -140,9 +139,8 @@ nnoremap <leader>l <C-w><C-l>
 nnoremap <leader>j <C-w><C-j>
 nnoremap <leader>k <C-w><C-k>
 
-
-" This might cause performance issues
-" syntax sync fromstart
+" Run vim command under cursor
+nnoremap <leader>r yy:@"<CR>
 
 
 " fzf.vim's GFiles but with cwd (for monorepos, see: https://github.com/junegunn/fzf.vim/pull/1160#issuecomment-801601546)
