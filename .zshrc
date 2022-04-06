@@ -75,7 +75,7 @@ source ~/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 #antigen bundle pip
-antigen bundle osx
+antigen bundle macos
 antigen bundle fzf
 antigen bundle node
 antigen bundle yarn
