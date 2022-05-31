@@ -13,6 +13,11 @@
     "filenames": ["node_modules", ".git"],
     "patternMatches": ["^\\."]
   },
+  "eslint.packageManager": "yarn",
+  "eslint.nodePath": ".yarn/sdks",
+  "workspace.workspaceFolderCheckCwd": false,
+  "tsserver.tsdk": ".yarn/sdks/typescript/lib",
+  "tsserver.log": "verbose",
   // generic
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
@@ -22,11 +27,21 @@
     "dart"
   ],
   "cSpell.userWords": [
+    "Entypo",
+    "Eralp",
+    "Karaduman",
     "Ovoro",
+    "Pressable",
+    "RNGH",
+    "another's",
     "donsol",
+    "gorhom",
     "junegunn",
     "mantine",
+    "modalize",
     "neoclide",
+    "portalize",
+    "react's",
     "tpope",
     "xlarge",
     "xsmall"

@@ -7,7 +7,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'airblade/vim-rooter'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'tpope/vim-fugitive',
 Plug 'Shougo/vimproc.vim'
 Plug 'idanarye/vim-merginal'
@@ -56,11 +57,12 @@ let g:coc_global_extensions = [
 \ 'coc-snippets',
 \ 'coc-spell-checker',
 \ 'coc-flutter-tools',
+\ 'coc-react-refactor'
 \ ]
 
 let g:coc_node_path = '~/.nvm/versions/node/v16.14.1/bin/node'
 
-colorscheme gruvbox
+colorscheme gruvbox8_hard
 
 syntax on
 set incsearch
@@ -139,9 +141,12 @@ nnoremap <leader>l <C-w><C-l>
 nnoremap <leader>j <C-w><C-j>
 nnoremap <leader>k <C-w><C-k>
 
+" Have j and k navigate visual lines rather than logical ones
+nmap j gj
+nmap k gk
+
 " Run vim command under cursor
 nnoremap <leader>r yy:@"<CR>
-
 
 " fzf.vim's GFiles but with cwd (for monorepos, see: https://github.com/junegunn/fzf.vim/pull/1160#issuecomment-801601546)
 command! -bang -nargs=? GFilesCwd
@@ -339,8 +344,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+"xmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
