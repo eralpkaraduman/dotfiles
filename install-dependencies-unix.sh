@@ -52,3 +52,5 @@ sudo apt install python3-pip
 echo "Install pynvim (required by nvim snippets)"
 python3 -m pip install --user --upgrade pynvim
 
+echo "Install nerdfonts"
+brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
