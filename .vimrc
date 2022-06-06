@@ -22,8 +22,6 @@ Plug 'digitaltoad/vim-pug'
 Plug 'roxma/vim-tmux-clipboard'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-  "Install nvim-tresitter parsers manually if not installed
-  "`:TSInstall tsx typescript json javascript`
 
 Plug 'tpope/vim-commentary'
 Plug 'kqito/vim-easy-replace'
@@ -37,6 +35,7 @@ Plug 'mlaursen/vim-react-snippets'
 
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'phaazon/hop.nvim'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 
@@ -180,8 +179,19 @@ set shiftwidth=2
 " Use spaces when pressing <tab> key
 set expandtab
 
-" set filetypes as typescriptreact (setting of vim-jsx-typescript)
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+" set filetypes as typescriptreact (setting of vim-jsx-typescript) (doesn't
+" seem to be installed tho, uncommenting below)
+" autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+" Treesitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"tsx", "typescript", "json", "javascript"},
+  highlight = {
+    enable = true
+  } 
+}
+EOF
 
 " Line moving
 nnoremap  <A-k> :m .-2<CR>==
