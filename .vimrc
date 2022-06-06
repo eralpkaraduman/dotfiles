@@ -23,7 +23,7 @@ Plug 'roxma/vim-tmux-clipboard'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
   "Install nvim-tresitter parsers manually if not installed
-  "`:TSInstall tsx typescript json`
+  "`:TSInstall tsx typescript json javascript`
 
 Plug 'tpope/vim-commentary'
 Plug 'kqito/vim-easy-replace'
@@ -36,6 +36,7 @@ Plug 'mlaursen/vim-react-snippets'
   "`python3 -m pip install --user --upgrade pynvim`
 
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'phaazon/hop.nvim'
 call plug#end()
 
 
@@ -60,7 +61,7 @@ let g:coc_global_extensions = [
 \ 'coc-react-refactor'
 \ ]
 
-let g:coc_node_path = '~/.nvm/versions/node/v16.14.1/bin/node'
+let g:coc_node_path = '~/.nvm/versions/node/v16.15.0/bin/node'
 
 colorscheme gruvbox8_hard
 
@@ -155,24 +156,9 @@ command! -bang -nargs=? GFilesCwd
 nmap <C-p> :GFilesCwd --exclude-standard --others --cached<CR>
 nmap <C-e> :Buffers<CR>
 
-"" IndentLine stuff
-"let g:indentLine_fileTypeExclude = ['json', 'md', 'coc-explorer']
-"" Disable indentline for coc-explorer
-"function! IndentLineExclude()
-"  if &filetype == 'coc-explorer'
-"    IndentLinesDisable
-"    LeadingSpaceDisable
-"  endif
-"endfunction
-"
-"augroup indentline_exclude
-"  autocmd!
-"  autocmd WinEnter,BufEnter,FileType * call IndentLineExclude()
-"augroup end
-
-"let g:indentLine_leadingSpaceEnabled = 1
-"let g:indentLine_leadingSpaceChar = '·'
-"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+"hop.nvim
+lua require'hop'.setup()
+nmap <C-h> :HopWord<CR>
 
 " For scss files
 autocmd FileType scss setl iskeyword+=@-@

@@ -107,19 +107,6 @@ zstyle ':prompt:pure:prompt:*' color cyan
 zstyle :prompt:pure:git:stash show yes
 prompt pure
 
-# # Java
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
-
-# Flutter (Overriden by HH Flutter in .zshrc-private)
-# export PATH="$PATH:$HOME/flutter/bin"
-
-# Python
-export PATH="$PATH:/Users/eralpkaraduman/Library/Python/3.8/bin"
-
-# LOVE2D
-export PATH=$PATH:/Applications/love.app/Contents/MacOS/
-
 source ~/.zshrc-private
 
 export PATH=$PATH:$HOME/tools/bin
@@ -128,29 +115,22 @@ export PATH=$PATH:$HOME/bin
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ "$(uname 2> /dev/null)" = "Linux" ]; then
-  # Keymaps below are moved to $HOME/.profile
-
-  # Map caps lock to escape
-  setxkbmap -option caps:escape
-  
-  # Map super key (windows) to ctrl
-  setxkbmap -option altwin:ctrl_win
+  export PATH="$PATH:/Users/eralpkaraduman/Library/Python/3.8/bin"
   
   export PATH=$PATH:~/.local/bin
+  export PATH=$PATH:~/bin
+  [[ -s "/home/eralp/.gvm/scripts/gvm" ]] && source "/home/eralp/.gvm/scripts/gvm"
+
+
+  PATH="/home/eralp/perl5/bin${PATH:+:${PATH}}"; export PATH;
+  PERL5LIB="/home/eralp/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+  PERL_LOCAL_LIB_ROOT="/home/eralp/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+  PERL_MB_OPT="--install_base \"/home/eralp/perl5\""; export PERL_MB_OPT;
+  PERL_MM_OPT="INSTALL_BASE=/home/eralp/perl5"; export PERL_MM_OPT;
+  
+  # GOLANG
+  export PATH=$PATH:/usr/local/go/bin
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$GOPATH/bin
 fi
 
-[[ -s "/home/eralp/.gvm/scripts/gvm" ]] && source "/home/eralp/.gvm/scripts/gvm"
-
-PATH="/home/eralp/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/eralp/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/eralp/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/eralp/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/eralp/perl5"; export PERL_MM_OPT;
-
-# GOLANG
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-# Add bin from home to path
-export PATH=$PATH:~/bin
