@@ -8,7 +8,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'airblade/vim-rooter'
 "Plug 'morhetz/gruvbox'
-Plug 'lifepillar/vim-gruvbox8'
+Plug 'srcery-colors/srcery-vim'
 Plug 'tpope/vim-fugitive',
 Plug 'Shougo/vimproc.vim'
 Plug 'idanarye/vim-merginal'
@@ -62,7 +62,8 @@ let g:coc_global_extensions = [
 
 let g:coc_node_path = '~/.nvm/versions/node/v16.15.0/bin/node'
 
-colorscheme gruvbox8_hard
+colorscheme srcery
+let g:srcery_italic = 1
 
 syntax on
 set incsearch
@@ -182,6 +183,7 @@ set expandtab
 " set filetypes as typescriptreact (setting of vim-jsx-typescript) (doesn't
 " seem to be installed tho, uncommenting below)
 " autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 
 " Treesitter
 lua << EOF
