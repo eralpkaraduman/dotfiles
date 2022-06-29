@@ -36,6 +36,8 @@ Plug 'mlaursen/vim-react-snippets'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'phaazon/hop.nvim'
 Plug 'jparise/vim-graphql'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 
@@ -50,14 +52,9 @@ let g:coc_global_extensions = [
 \ 'coc-json',
 \ 'coc-css',
 \ 'coc-lists',
-\ 'coc-css',
-\ 'coc-explorer',
-\ 'coc-prettier',
-\ 'coc-styled-components',
 \ 'coc-snippets',
 \ 'coc-spell-checker',
-\ 'coc-flutter-tools',
-\ 'coc-react-refactor'
+\ 'coc-flutter-tools'
 \ ]
 
 let g:coc_node_path = '~/.nvm/versions/node/v16.15.0/bin/node'
@@ -221,16 +218,24 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Search Stuff
 " Install bat for syntax highlighted previews: https://github.com/sharkdp/bat#installation
 
-let g:rooter_patterns = ['package.json','.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile']
+let g:rooter_patterns = ['package.json','.git']
 
-function! AgFzF(query)
-  call fzf#vim#ag(a:query, fzf#vim#with_preview({'options': '--delimiter : --nth 2..'}, 'up:80%'))
-endfunction
+" function! RipgrepFzfAdvanced(query, fullscreen)
+"   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+"   let initial_command = printf(command_fmt, shellescape(a:query))
+"   let reload_command = printf(command_fmt, '{q}')
+"   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+"   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+" endfunction
+" command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+" nnoremap <silent> <C-f> :RG<cr>
 
-command! -bang -nargs=* Ag call AgFzF(<q-args>)
+command! -bang -nargs=* RipgrepFzf
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+nnoremap <silent> <C-f> :RipgrepFzf<cr>
 
-
-nnoremap <silent> <C-f> :Ag<cr>
 " nnoremap <silent> <C-f> :ProjectRootExe Ag<cr>
 " nnoremap <silent> <C-f>f :<C-u>ProjectRootExe Ag <cr>g
 " vnoremap <silent> <C-f>f y:ProjectRootExe Ag <C-r>=fnameescape(@")<CR><CR>
@@ -422,43 +427,10 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Resume latest coc list.
 "nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" Explorer
-let g:coc_explorer_global_presets = {
-\   '.vim': {
-\     'root-uri': '~/.vim',
-\   },
-\   'tab': {
-\     'position': 'tab',
-\     'quit-on-open': v:true,
-\   },
-\   'floating': {
-\     'position': 'floating',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingTop': {
-\     'position': 'floating',
-\     'floating-position': 'center-top',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingLeftside': {
-\     'position': 'floating',
-\     'floating-position': 'left-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingRightside': {
-\     'position': 'floating',
-\     'floating-position': 'right-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'simplify': {
-\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   }
-\ }
+" nvim-tree
+lua << EOF
+require("nvim-tree").setup()
+EOF
 
-nmap <space>e :CocCommand explorer --root-strategies keep<CR>
-" nmap <space>f :CocCommand explorer --preset floating<CR>
+nmap <space>e :NvimTreeToggle<CR>
 
-" Close vim if last remaining window is coc-explorer
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif

@@ -55,3 +55,4 @@ python3 -m pip install --user --upgrade pynvim
 
 echo "Install nerdfonts"
 brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
+brew tap homebrew/cask-fonts && brew install --cask font-iosevka-nerd-font
