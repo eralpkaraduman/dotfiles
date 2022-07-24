@@ -1,18 +1,4 @@
 {
-  // explorer
-  "explorer.file.reveal.auto": true,
-  "explorer.width": 40,
-  "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": false,
-  "explorer.keyMappings.global": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:vsplit"
-  },
-  "explorer.file.showHiddenFiles": false,
-  "explorer.file.hiddenRules": {
-    "filenames": ["node_modules", ".git"],
-    "patternMatches": ["^\\."]
-  },
   "eslint.packageManager": "yarn",
   "eslint.nodePath": ".yarn/sdks",
   "workspace.workspaceFolderCheckCwd": false,
@@ -27,6 +13,7 @@
     "dart"
   ],
   "cSpell.userWords": [
+    "DROPOFF",
     "Entypo",
     "Eralp",
     "Karaduman",
@@ -39,19 +26,27 @@
     "Serviceareas",
     "another's",
     "barcodes",
+    "bootsplash",
+    "checkmark",
+    "collapsable",
+    "compat",
     "donsol",
     "driveassistance",
     "dutymesh",
     "dutymeshes",
     "eventslog",
+    "fieldassistancemobile",
+    "geolocation",
     "gorhom",
     "hocs",
     "junegunn",
     "mantine",
+    "middlewares",
     "modalize",
     "neoclide",
     "portalize",
     "react's",
+    "statusmap",
     "tpope",
     "waveplanner",
     "xlarge",

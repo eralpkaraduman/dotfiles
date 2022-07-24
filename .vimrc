@@ -54,7 +54,8 @@ let g:coc_global_extensions = [
 \ 'coc-lists',
 \ 'coc-snippets',
 \ 'coc-spell-checker',
-\ 'coc-flutter-tools'
+\ 'coc-flutter-tools',
+\ 'coc-prettier',
 \ ]
 
 let g:coc_node_path = '~/.nvm/versions/node/v16.15.0/bin/node'
@@ -148,7 +149,7 @@ nnoremap <leader>r yy:@"<CR>
 
 " fzf.vim's GFiles but with cwd (for monorepos, see: https://github.com/junegunn/fzf.vim/pull/1160#issuecomment-801601546)
 command! -bang -nargs=? GFilesCwd
-  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(<q-args> == '?' ? { 'dir': getcwd(), 'placeholder': '' } : { 'dir': getcwd() }), <bang>0)
+\ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(<q-args> == '?' ? { 'dir': getcwd(), 'placeholder': '' } : { 'dir': getcwd() }), <bang>0)
 
 nmap <C-p> :GFilesCwd --exclude-standard --others --cached<CR>
 nmap <C-e> :Buffers<CR>
@@ -185,12 +186,14 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 " Treesitter
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"tsx", "typescript", "json", "javascript"},
+ensure_installed = {"tsx", "typescript", "json", "javascript", "astro", "css"},
   highlight = {
     enable = true
   } 
 }
 EOF
+
+autocmd BufRead,BufEnter *.astro set filetype=astro
 
 " Line moving
 nnoremap  <A-k> :m .-2<CR>==
@@ -231,9 +234,9 @@ let g:rooter_patterns = ['package.json','.git']
 " nnoremap <silent> <C-f> :RG<cr>
 
 command! -bang -nargs=* RipgrepFzf
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+\ call fzf#vim#grep(
+\   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+\   fzf#vim#with_preview(), <bang>0)
 nnoremap <silent> <C-f> :RipgrepFzf<cr>
 
 " nnoremap <silent> <C-f> :ProjectRootExe Ag<cr>
@@ -266,38 +269,38 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+" Recently vim can merge signcolumn and number column into one
+set signcolumn=number
 else
-  set signcolumn=yes
+set signcolumn=yes
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+let col = col('.') - 1
+return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <leader-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <leader><tab> coc#refresh()
-  " inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <leader><tab> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
 else
-  inoremap <silent><expr> <c-@> coc#refresh()
+inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -314,13 +317,13 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+if (index(['vim','help'], &filetype) >= 0)
+  execute 'h '.expand('<cword>')
+elseif (coc#rpc#ready())
+  call CocActionAsync('doHover')
+else
+  execute '!' . &keywordprg . " " . expand('<cword>')
+endif
 endfunction
 
 " Show documentation on K (based on: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim )
@@ -351,11 +354,11 @@ nmap <leader>rn <Plug>(coc-rename)
 "nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+autocmd!
+" Setup formatexpr specified filetype(s).
+autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+" Update signature help on jump placeholder.
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
@@ -427,6 +430,8 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Resume latest coc list.
 "nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+nnoremap <silent><nowait> <space>b  :<C-u>CocList buffers<CR>
+"
 " nvim-tree
 lua << EOF
 require("nvim-tree").setup()
