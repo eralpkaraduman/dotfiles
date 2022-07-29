@@ -431,10 +431,14 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 "nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 nnoremap <silent><nowait> <space>b  :<C-u>CocList buffers<CR>
-"
+
 " nvim-tree
 lua << EOF
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+  update_focused_file = {
+    enable = true 
+  }     
+})
 EOF
 
 nmap <space>e :NvimTreeToggle<CR>
