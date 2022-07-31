@@ -7,9 +7,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'airblade/vim-rooter'
-"Plug 'morhetz/gruvbox'
 Plug 'srcery-colors/srcery-vim'
-Plug 'tpope/vim-fugitive',
+Plug 'lifepillar/vim-solarized8'
+Plug 'tpope/vim-fugitive'
 Plug 'Shougo/vimproc.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'prettier/vim-prettier', {
@@ -60,8 +60,15 @@ let g:coc_global_extensions = [
 
 let g:coc_node_path = '~/.nvm/versions/node/v16.15.0/bin/node'
 
-colorscheme srcery
-let g:srcery_italic = 1
+" Dark colorscheme
+" set background=dark
+" colorscheme srcery
+" let g:srcery_italic = 1
+
+" Light colorscheme
+set background=light
+autocmd vimenter * ++nested colorscheme solarized8
+
 
 syntax on
 set incsearch

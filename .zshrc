@@ -95,6 +95,14 @@ antigen bundle command-not-found
 antigen bundle Aloxaf/fzf-tab
 antigen apply
 
+# FZF settings
+export FZF_DEFAULT_OPTS='
+--color light
+'
+
+# BAT settings
+export BAT_THEME=OneHalfLight
+
 # Pure Prompt theme
 ZSH_THEME="" #Disalbe oh-my-zsh themes
 # Install pure prompt manually npm install --global pure-prompt
