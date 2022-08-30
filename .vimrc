@@ -60,16 +60,17 @@ let g:coc_global_extensions = [
 
 let g:coc_node_path = '~/.nvm/versions/node/v16.15.0/bin/node'
 
-" Dark colorscheme
-" set background=dark
-" colorscheme srcery
-" let g:srcery_italic = 1
-
-" Light colorscheme
-set background=light
-autocmd vimenter * ++nested colorscheme solarized8
-
-
+if $DARK_THEME == 1
+  " Dark colorscheme
+  set background=dark
+  colorscheme srcery
+  let g:srcery_italic = 1
+else
+  " Light colorscheme
+  set background=light
+  autocmd vimenter * ++nested colorscheme solarized8
+endif
+  
 syntax on
 set incsearch
 set nowrap

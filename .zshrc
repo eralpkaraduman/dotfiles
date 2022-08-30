@@ -95,13 +95,24 @@ antigen bundle command-not-found
 antigen bundle Aloxaf/fzf-tab
 antigen apply
 
-# FZF settings
-export FZF_DEFAULT_OPTS='
---color light
-'
+export DARK_THEME=1 # 1 / 0
 
-# BAT settings
-export BAT_THEME=OneHalfLight
+if [ $DARK_THEME  -eq  1 ]
+  then 
+    tmux set-environment -g THEME 'dark'
+    export FZF_DEFAULT_OPTS='
+    --color dark
+    '
+    export BAT_THEME=OneHalfDark
+    kitty +kitten themes --reload-in=all Afterglow
+  else 
+    tmux set-environment -g THEME 'light'
+    export FZF_DEFAULT_OPTS='
+    --color light
+    '
+    export BAT_THEME=OneHalfLight
+    kitty +kitten themes --reload-in=all Solarized Light 
+fi
 
 # Pure Prompt theme
 ZSH_THEME="" #Disalbe oh-my-zsh themes
@@ -110,8 +121,8 @@ ZSH_THEME="" #Disalbe oh-my-zsh themes
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 PURE_CMD_MAX_EXEC_TIME=10
-zstyle :prompt:pure:path color gray
-zstyle ':prompt:pure:prompt:*' color cyan
+zstyle :prompt:pure:path color cyan
+zstyle ':prompt:pure:prompt:*' color red
 zstyle :prompt:pure:git:stash show yes
 prompt pure
 
