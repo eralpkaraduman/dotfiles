@@ -22,6 +22,9 @@ rsync -r ~/.config/images .config/
 echo "Updating ideavim config"
 cp ~/.ideavimrc .
 
+echo "Updating obsidian config"
+cp ~/Documents/Obsidian Vault/.obsidian.vimrc .
+
 echo "Pushing to repository"
 git add .
 git clean -df
