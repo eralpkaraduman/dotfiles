@@ -32,7 +32,6 @@ cp ./obsidian.vimrc ~/Documents/Obsidian\ Vault/obsidian.vimrc
 echo "Updating images"
 mkdir -p ~/.config/images
 rsync -r .config/images ~/.config
-
 echo "Updating ideavim config"
 cp .ideavimrc ~/.ideavimrc
 
