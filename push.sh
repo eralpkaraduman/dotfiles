@@ -27,7 +27,7 @@ cp ~/Documents/Obsidian\ Vault/obsidian.vimrc .
 
 echo "Pushing to repository"
 git add .
-git diff --exit-code | bat # test
+git diff | bat # test
 git clean -df
 git commit -m "Update"
 git push
