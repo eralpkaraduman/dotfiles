@@ -25,7 +25,7 @@ cp ~/.ideavimrc .
 echo "Updating obsidian config"
 cp ~/Documents/Obsidian\ Vault/obsidian.vimrc .
 
-git diff | bat
+git diff --exit-code --quiet | bat
 
 echo "Pushing to repository"
 git add .
