@@ -26,7 +26,7 @@ echo "Updating obsidian config"
 cp ~/Documents/Obsidian\ Vault/obsidian.vimrc .
 
 echo "Pushing to repository"
-git diff --quiet # test
+git diff --exit-code # test
 git add .
 git clean -df
 git commit -m "Update"
