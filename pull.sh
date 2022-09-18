@@ -27,7 +27,7 @@ mkdir -p ~/.config/kitty
 cp ./.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 echo "Updating obsidian config"
-cp ~.obsidian.vimrc /Documents/Obsidian Vault/.obsidian.vimrc
+cp ~obsidian.vimrc /Documents/Obsidian Vault/obsidian.vimrc
 
 echo "Updating images"
 mkdir -p ~/.config/images
