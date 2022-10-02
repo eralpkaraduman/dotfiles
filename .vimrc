@@ -18,27 +18,17 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
   \ }
 Plug 'ap/vim-css-color'
-Plug 'digitaltoad/vim-pug'
 Plug 'roxma/vim-tmux-clipboard'
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
 Plug 'tpope/vim-commentary'
-Plug 'kqito/vim-easy-replace'
-  " <leader>rc / <leader>ra
-
-Plug 'mlaursen/vim-react-snippets'
-  "Install pip (required y nvim snippets)
-  "`sudo apt install python3-pip`
-  "Install pynvim (required by nvim snippets)
-  "`python3 -m pip install --user --upgrade pynvim`
-
+Plug 'kqito/vim-easy-replace' " <leader>rc / <leader>ra
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'phaazon/hop.nvim'
 Plug 'jparise/vim-graphql'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'github/copilot.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "Coc plugins
@@ -85,8 +75,6 @@ set mouse=a
 set scrolloff=6
 set autoread
 au FocusGained,BufEnter * :checktime
-set tabstop=2 softtabstop=2
-set shiftwidth=2
 set expandtab
 set smartindent
 set ignorecase
@@ -162,10 +150,6 @@ command! -bang -nargs=? GFilesCwd
 nmap <C-p> :GFilesCwd --exclude-standard --others --cached<CR>
 nmap <C-e> :Buffers<CR>
 
-"hop.nvim
-lua require'hop'.setup()
-nmap <C-h> :HopWord<CR>
-
 " For scss files
 autocmd FileType scss setl iskeyword+=@-@
 
@@ -179,11 +163,9 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-" Set tab width to 2 columns
-set tabstop=2
-" Use 2 columns for indentation
-set shiftwidth=2
-" Use spaces when pressing <tab> key
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 " set filetypes as typescriptreact (setting of vim-jsx-typescript) (doesn't
@@ -468,3 +450,5 @@ EOF
 
 nmap <space>e :NvimTreeToggle<CR>
 
+" indentLine
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
