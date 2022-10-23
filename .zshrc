@@ -1,7 +1,5 @@
 # Based on this guide: https://www.viget.com/articles/zsh-config-productivity-plugins-for-mac-oss-default-shell/
 
-export PATH="/usr/local/bin:$PATH"
-
 # History
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
 
@@ -126,7 +124,6 @@ zstyle ':prompt:pure:prompt:*' color red
 zstyle :prompt:pure:git:stash show yes
 prompt pure
 
-source ~/.zshrc-private
 
 export PATH=$PATH:$HOME/tools/bin
 export PATH=$PATH:$HOME/bin
@@ -153,3 +150,8 @@ if [ "$(uname 2> /dev/null)" = "Linux" ]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+# x86 brew is here
+export PATH="/usr/local/bin:$PATH"
+
+# private stuff
+source ~/.zshrc-private

@@ -39,7 +39,6 @@ let g:coc_global_extensions = [
 \ 'coc-git',
 \ 'coc-eslint',
 \ 'coc-tsserver',
-\ 'coc-json',
 \ 'coc-css',
 \ 'coc-lists',
 \ 'coc-snippets',
@@ -100,8 +99,7 @@ set undofile
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " exit terminal mode with esc
-" tnoremap <Esc> <C-\><C-n>
-" tnoremap jj <C-\><C-n>
+tnoremap jj <C-\><C-n>
 imap jj <Esc>
 
 nnoremap H ^
@@ -139,9 +137,6 @@ nnoremap <leader>k <C-w><C-k>
 " Have j and k navigate visual lines rather than logical ones
 nmap j gj
 nmap k gk
-
-" Run vim command under cursor
-nnoremap <leader>r yy:@"<CR>
 
 " fzf.vim's GFiles but with cwd (for monorepos, see: https://github.com/junegunn/fzf.vim/pull/1160#issuecomment-801601546)
 command! -bang -nargs=? GFilesCwd
@@ -211,7 +206,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Search Stuff
 " Install bat for syntax highlighted previews: https://github.com/sharkdp/bat#installation
 
-let g:rooter_patterns = ['package.json','.git']
+let g:rooter_patterns = ['.git'] ", 'package.json'
 
 " function! RipgrepFzfAdvanced(query, fullscreen)
 "   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
@@ -441,14 +436,25 @@ nnoremap <silent><nowait> <space>b  :<C-u>CocList buffers<CR>
 
 " nvim-tree
 lua << EOF
-require("nvim-tree").setup({
+require'nvim-tree'.setup {
   update_focused_file = {
-    enable = true 
+    enable = true
   }     
-})
+}
 EOF
 
 nmap <space>e :NvimTreeToggle<CR>
 
 " indentLine
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+autocmd Filetype json let g:indentLine_setConceal = 0
+
+" Terminal
+":command! VT vsplit | terminal
+":command! T belowright split | terminal
+
+command! -nargs=* T  vsplit | terminal <args>
+command! -nargs=* VT belowright split | terminal <args>
+nnoremap <leader>vt :T<return>
+nnoremap <leader>t :VT<return>
+
