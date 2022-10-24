@@ -452,8 +452,7 @@ nmap <space>e :NvimTreeToggle<CR>
 autocmd Filetype json let g:indentLine_setConceal = 0
 
 " Terminal
-":command! VT vsplit | terminal
-":command! T belowright split | terminal
+autocmd TermOpen * startinsert
 
 command! -nargs=* T  vsplit | terminal <args>
 command! -nargs=* VT belowright split | terminal <args>
