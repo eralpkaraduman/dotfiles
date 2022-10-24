@@ -17,7 +17,7 @@ Plug 'prettier/vim-prettier', {
   \ 'branch': 'release/0.x',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
   \ }
-Plug 'ap/vim-css-color'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'tpope/vim-commentary'
@@ -177,6 +177,8 @@ ensure_installed = {"tsx", "typescript", "json", "javascript", "astro", "css"},
   } 
 }
 EOF
+
+lua require'colorizer'.setup()
 
 autocmd BufRead,BufEnter *.astro set filetype=astro
 
