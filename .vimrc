@@ -1,3 +1,5 @@
+# WARNING Not updated anymore, moved to ~/.config/nvim/init.vim
+
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
