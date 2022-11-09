@@ -78,8 +78,8 @@ antigen bundle git
 #antigen bundle pip
 antigen bundle macos
 antigen bundle fzf
-antigen bundle node
-antigen bundle yarn
+antigen bundle yarn-autocompletions
+#antigen bundle node
 #antigen bundle vi-mode
 #antigen bundle virtualenv
 #antigen bundle iterm2
@@ -89,8 +89,8 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle command-not-found
 #antigen bundle mafredri/zsh-async
-#antigen bundle lukechilds/zsh-better-npm-completion
-antigen bundle Aloxaf/fzf-tab
+antigen bundle lukechilds/zsh-better-npm-completion
+#antigen bundle Aloxaf/fzf-tab
 antigen apply
 
 export DARK_THEME=1 # 1 / 0
