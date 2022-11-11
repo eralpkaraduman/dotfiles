@@ -79,6 +79,7 @@ antigen bundle git
 antigen bundle macos
 antigen bundle fzf
 antigen bundle yarn-autocompletions
+antigen bundle npm
 #antigen bundle node
 #antigen bundle vi-mode
 #antigen bundle virtualenv
