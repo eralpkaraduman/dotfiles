@@ -205,7 +205,7 @@ nnoremap <Leader>w :w<cr>
 nnoremap <esc><esc> :noh<return>
 
 set laststatus=2
-set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+set statusline=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}%{expand('%:p:h:t')}/%t
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -297,12 +297,12 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
 " Map <tab> for trigger completion, completion confirm, snippet expand and jump
 " like VSCode: 
 
-inoremap <silent><expr> <TAB>
-  \ coc#pum#visible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ?
-  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
+" inoremap <silent><expr> <TAB>
+"   \ coc#pum#visible() ? coc#_select_confirm() :
+"   \ coc#expandableOrJumpable() ?
+"   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -418,7 +418,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}
 
 " Mappings for CoCList
 " Show all diagnostics.
