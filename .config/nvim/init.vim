@@ -10,6 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dbakker/vim-projectroot'
 Plug 'airblade/vim-rooter'
+Plug 'morhetz/gruvbox'
 Plug 'srcery-colors/srcery-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-fugitive'
@@ -29,7 +30,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'jparise/vim-graphql'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 call plug#end()
@@ -48,20 +49,30 @@ let g:coc_global_extensions = [
 \ 'coc-spell-checker',
 \ 'coc-flutter-tools',
 \ 'coc-prettier',
+\ 'coc-sourcekit',
+\ 'coc-lua',
 \ ]
 
 let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 let g:coc_node_path = '~/.nvm/versions/node/v16.15.0/bin/node'
 
+" Copilot
+let g:copilot_node_command = '~/.nvm/versions/node/v16.15.0/bin/node'
+
 if $DARK_THEME == 1
   " Dark colorscheme
   set background=dark
-  colorscheme srcery
-  let g:srcery_italic = 1
+
+  " colorscheme srcery
+  " let g:srcery_italic = 1
+
+  colorscheme gruvbox
 else
   " Light colorscheme
   set background=light
-  autocmd vimenter * ++nested colorscheme solarized8
+
+  " autocmd vimenter * ++nested colorscheme solarized8
+  colorscheme gruvbox
 endif
   
 syntax on
@@ -177,7 +188,7 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 " Treesitter
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = {"tsx", "typescript", "json", "javascript", "astro", "css"},
+ensure_installed = {"tsx", "typescript", "json", "javascript", "astro", "css", "lua"},
   highlight = {
     enable = true
   } 
@@ -459,7 +470,6 @@ autocmd Filetype json let g:indentLine_setConceal = 0
 
 " Terminal
 autocmd TermOpen * startinsert
-
 tnoremap jj <C-\><C-n>
 
 command! -nargs=* T  vsplit | terminal <args>

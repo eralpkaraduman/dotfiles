@@ -71,7 +71,7 @@ antigen bundle lukechilds/zsh-better-npm-completion
 #antigen bundle Aloxaf/fzf-tab
 antigen apply
 
-export DARK_THEME=1 # 1 / 0
+export DARK_THEME=0 # 1 / 0
 
 if [ $DARK_THEME  -eq  1 ]
   then 
@@ -155,6 +155,15 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# Golang
+#export GOPATH=$HOME/go
+#export GOROOT=/usr/local/go
+#export GOBIN=$GOPATH/bin
+#export PATH=$PATH:$GOPATH
+#export PATH=$PATH:$GOROOT/bin
+
+alias brew_arm64="/opt/homebrew/bin/brew"
 
 # private stuff
 source ~/.zshrc-private
