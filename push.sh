@@ -25,6 +25,9 @@ cp ~/.ideavimrc .
 echo "Updating obsidian config"
 cp ~/Documents/Obsidian\ Vault/obsidian.vimrc .
 
+echo "Updating alacritty config"
+cp ~/.config/alacritty/alacritty.yml .config/alacritty/alacritty.conf
+
 echo "Pushing to repository"
 git diff --exit-code | bat
 git add .

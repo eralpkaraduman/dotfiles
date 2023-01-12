@@ -29,6 +29,9 @@ cp ./.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 echo "Updating obsidian config"
 cp ./obsidian.vimrc ~/Documents/Obsidian\ Vault/obsidian.vimrc
 
+echo "Updating alacritty config"
+cp .config/alacritty/alacritty.conf ~/.config/alacritty/alacritty.yml
+
 echo "Updating images"
 mkdir -p ~/.config/images
 rsync -r .config/images ~/.config
