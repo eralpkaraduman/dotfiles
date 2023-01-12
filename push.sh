@@ -26,7 +26,6 @@ echo "Updating obsidian config"
 cp ~/Documents/Obsidian\ Vault/obsidian.vimrc .
 
 echo "Updating alacritty config"
-mkdir -p .config/alacritty
 cp ~/.config/alacritty/alacritty.yml .config/alacritty/alacritty.yaml
 
 echo "Pushing to repository"
