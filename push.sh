@@ -13,7 +13,7 @@ cp ~/.zshrc .
 echo "Updating tmux config"
 cp ~/.tmux.conf .
 
-echo "Updating kitty config a"
+echo "Updating kitty config"
 cp ~/.config/kitty/kitty.conf .config/kitty/kitty.conf
 
 echo "Update images"
@@ -26,7 +26,8 @@ echo "Updating obsidian config"
 cp ~/Documents/Obsidian\ Vault/obsidian.vimrc .
 
 echo "Updating alacritty config"
-cp ~/.config/alacritty/alacritty.yml .config/alacritty/alacritty.conf
+mkdir -p .config/alacritty
+cp ~/.config/alacritty/alacritty.yml .config/alacritty/alacritty.yaml
 
 echo "Pushing to repository"
 git diff --exit-code | bat

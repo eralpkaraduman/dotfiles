@@ -30,7 +30,7 @@ echo "Updating obsidian config"
 cp ./obsidian.vimrc ~/Documents/Obsidian\ Vault/obsidian.vimrc
 
 echo "Updating alacritty config"
-cp .config/alacritty/alacritty.conf ~/.config/alacritty/alacritty.yml
+cp .config/alacritty/alacritty.yaml ~/.config/alacritty/alacritty.yml
 
 echo "Updating images"
 mkdir -p ~/.config/images
