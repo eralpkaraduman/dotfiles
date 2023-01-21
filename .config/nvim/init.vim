@@ -188,7 +188,10 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 " Treesitter
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = {"tsx", "typescript", "json", "javascript", "astro", "css", "lua"},
+ensure_installed = {
+    "tsx", "typescript", "json", "javascript", 
+    "astro", "css", "lua", "java", "jsdoc", 
+    "python", "yaml"},
   highlight = {
     enable = true
   } 
