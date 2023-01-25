@@ -32,7 +32,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'github/copilot.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
 "Coc plugins
@@ -195,6 +195,19 @@ ensure_installed = {
   highlight = {
     enable = true
   } 
+}
+EOF
+
+" indent-blankline
+lua << EOF
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
 }
 EOF
 
@@ -466,10 +479,6 @@ require'nvim-tree'.setup {
 EOF
 
 nmap <space>e :NvimTreeToggle<CR>
-
-" indentLine
-" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-autocmd Filetype json let g:indentLine_setConceal = 0
 
 " Terminal
 autocmd TermOpen * startinsert
