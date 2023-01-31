@@ -231,15 +231,13 @@ nnoremap <Leader>w :w<cr>
 " Clear search highlights
 nnoremap <esc><esc> :noh<return>
 
+" Statusline
 set laststatus=2
 let spacing=' '
-set statusline=%{get(g:,'coc_git_status','?')}
+set statusline=%{spacing}
+set statusline+=%{pathshorten(expand('%:f'))}
 set statusline+=%{spacing}
-set statusline+=%{get(g:,'coc_git_blame','?')}
-set statusline+=%{spacing}
-set statusline+=%{expand('%:p:h:t')}
-set statusline+=%{spacing}
-set statusline+=%t
+set statusline+=%{get(g:,'coc_git_status','?')}
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
@@ -453,8 +451,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{get(b:,'coc_current_function','')}
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " set statusline^=%{coc#status()}
 
 " Mappings for CoCList
