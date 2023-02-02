@@ -43,7 +43,6 @@ let g:coc_global_extensions = [
 \ 'coc-git',
 \ 'coc-eslint',
 \ 'coc-tsserver',
-\ 'coc-css',
 \ 'coc-lists',
 \ 'coc-snippets',
 \ 'coc-spell-checker',

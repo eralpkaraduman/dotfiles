@@ -71,7 +71,7 @@ antigen bundle lukechilds/zsh-better-npm-completion
 #antigen bundle Aloxaf/fzf-tab
 antigen apply
 
-export DARK_THEME=0 # 1 / 0
+export DARK_THEME=1 # 1 / 0
 
 if [ $DARK_THEME  -eq  1 ]
   then 
@@ -80,14 +80,14 @@ if [ $DARK_THEME  -eq  1 ]
     --color dark
     '
     export BAT_THEME=OneHalfDark
-    kitty +kitten themes --reload-in=all Afterglow
+    #kitty +kitten themes --reload-in=all Afterglow
   else 
     tmux set-environment -g THEME 'light'
     export FZF_DEFAULT_OPTS='
     --color light
     '
     export BAT_THEME=OneHalfLight
-    kitty +kitten themes --reload-in=all Solarized Light 
+    #kitty +kitten themes --reload-in=all Solarized Light 
 fi
 
 # Pure Prompt theme
