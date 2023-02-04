@@ -8,8 +8,6 @@ Plug 'tpope/vim-surround',
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'dbakker/vim-projectroot'
-Plug 'airblade/vim-rooter'
 Plug 'morhetz/gruvbox'
 Plug 'srcery-colors/srcery-vim'
 Plug 'lifepillar/vim-solarized8'
@@ -38,18 +36,16 @@ call plug#end()
 "Coc plugins
 let g:coc_global_extensions = [
 \ 'coc-pairs',
-\ 'coc-html',
 \ 'coc-highlight',
 \ 'coc-git',
 \ 'coc-eslint',
-\ 'coc-tsserver',
 \ 'coc-lists',
 \ 'coc-snippets',
 \ 'coc-spell-checker',
-\ 'coc-flutter-tools',
 \ 'coc-prettier',
-\ 'coc-sourcekit',
 \ 'coc-lua',
+\ 'coc-tsserver',
+\ 'coc-deno',
 \ ]
 
 let g:node_host_prog = '/usr/local/bin/neovim-node-host'
@@ -245,8 +241,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Search Stuff
 " Install bat for syntax highlighted previews: https://github.com/sharkdp/bat#installation
 
-let g:rooter_patterns = ['.git'] ", 'package.json'
-
 " function! RipgrepFzfAdvanced(query, fullscreen)
 "   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
 "   let initial_command = printf(command_fmt, shellescape(a:query))
@@ -262,10 +256,6 @@ command! -bang -nargs=* RipgrepFzf
 \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
 \   fzf#vim#with_preview(), <bang>0)
 nnoremap <silent> <C-f> :RipgrepFzf<cr>
-
-" nnoremap <silent> <C-f> :ProjectRootExe Ag<cr>
-" nnoremap <silent> <C-f>f :<C-u>ProjectRootExe Ag <cr>g
-" vnoremap <silent> <C-f>f y:ProjectRootExe Ag <C-r>=fnameescape(@")<CR><CR>
 
 " coc.nvim sample configuration below based on: https://github.com/neoclide/coc.nvim
 

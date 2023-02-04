@@ -1,15 +1,15 @@
 {
   "eslint.packageManager": "yarn",
   "eslint.nodePath": ".yarn/sdks",
-  "workspace.workspaceFolderCheckCwd": false,
   "tsserver.tsdk": ".yarn/sdks/typescript/lib",
+  "workspace.rootPatterns": ["package.json"],
   "tsserver.log": "verbose",
 
   // coc-tsserver
   "eslint.packageManager": "yarn",
   "eslint.nodePath": ".yarn/sdks",
-  "workspace.workspaceFolderCheckCwd": false,
   "tsserver.useLocalTsdk": true,
+  "workspace.workspaceFolderCheckCwd": false,
 
   // generic
   "coc.preferences.formatOnSaveFiletypes": [
@@ -26,8 +26,8 @@
     "ELMOS",
     "Entypo",
     "Eralp",
-    "Johansson",
     "Karaduman",
+    "Johansson",
     "MRPEASY",
     "Noflag",
     "Ovoro",
@@ -87,6 +87,7 @@
     "tpope",
     "unscanned",
     "waveplanner",
+    "workspaceroot",
     "xlarge",
     "xsmall"
   ]
