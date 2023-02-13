@@ -48,12 +48,15 @@ let g:coc_global_extensions = [
 \ 'coc-deno',
 \ ]
 
-let g:node_host_prog = '/usr/local/bin/neovim-node-host'
-let g:coc_node_path = '~/.nvm/versions/node/v16.15.0/bin/node'
-
+" Used to use these but :healthcheck showed errors. Then it was fine when I
+" commented them out. Paths are wrong on m1 macs maybe? But works fine without
+" them anyways
+" let g:node_host_prog = '/usr/local/bin/neovim-node-host'
+" let g:coc_node_path = '~/.nvm/versions/node/v16.15.1/bin/node'
 " Copilot
-let g:copilot_node_command = '~/.nvm/versions/node/v16.15.0/bin/node'
+" let g:copilot_node_command = '~/.nvm/versions/node/v16.15.1/bin/node'
 
+set termguicolors
 if $DARK_THEME == 1
   " Dark colorscheme
   set background=dark
@@ -87,7 +90,6 @@ au FocusGained,BufEnter * :checktime
 set expandtab
 set smartindent
 set ignorecase
-set termguicolors
 set smartcase
 set signcolumn=no
 " set signcolumn=yes

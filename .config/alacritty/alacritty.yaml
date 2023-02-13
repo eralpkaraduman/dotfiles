@@ -11,19 +11,21 @@
 import:
 #  - /path/to/alacritty.yml
  # - ~/.alacritty-colorscheme/themes/gruvbox_light.yaml # LIGHT # git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
-  - ~/.alacritty-colorscheme/themes/afterglow.yaml # DARK # git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
+ # - ~/.alacritty-colorscheme/themes/afterglow.yaml # DARK # git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
+  - ~/.alacritty-colorscheme/themes/gruvbox.yaml # DARK # git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+  # TERM: alacritty
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -81,13 +83,13 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  startup_mode: Maximized
 
   # Window title
-  #title: Alacritty
+  title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
-  #dynamic_title: true
+  dynamic_title: false
 
   # Window class (Linux/BSD only):
   #class:
