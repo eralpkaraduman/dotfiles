@@ -181,6 +181,7 @@ set expandtab
 " seem to be installed tho, uncommenting below)
 " autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
+autocmd BufNewFile,BufRead *.jade set filetype=pug
 
 " Treesitter
 lua << EOF

@@ -163,7 +163,10 @@ load-nvmrc
 #export PATH=$PATH:$GOPATH
 #export PATH=$PATH:$GOROOT/bin
 
+# Keeping multiple versions of brew for librdkafka node module for gca server development
 alias brew_arm64="/opt/homebrew/bin/brew"
+alias brew_x86-64="/usr/local/bin/brew"
+alias brew="brew_arm64"
 
 # private stuff
 source ~/.zshrc-private
