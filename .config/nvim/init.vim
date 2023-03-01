@@ -46,6 +46,7 @@ let g:coc_global_extensions = [
 \ 'coc-lua',
 \ 'coc-tsserver',
 \ 'coc-deno',
+\ 'coc-sourcekit',
 \ ]
 
 " Used to use these but :healthcheck showed errors. Then it was fine when I
@@ -189,7 +190,7 @@ require'nvim-treesitter.configs'.setup {
 ensure_installed = {
     "tsx", "typescript", "json", "javascript", 
     "astro", "css", "lua", "java", "jsdoc", 
-    "python", "yaml"},
+    "python", "yaml", "swift"},
   highlight = {
     enable = true
   } 

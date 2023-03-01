@@ -28,6 +28,9 @@ cp ~/Documents/Obsidian\ Vault/obsidian.vimrc .
 echo "Updating alacritty config"
 cp ~/.config/alacritty/alacritty.yml .config/alacritty/alacritty.yaml
 
+echo "Updating wezterm config"
+cp ~/.config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
+
 echo "Pushing to repository"
 git diff --exit-code | bat
 git add .

@@ -32,6 +32,9 @@ cp ./obsidian.vimrc ~/Documents/Obsidian\ Vault/obsidian.vimrc
 echo "Updating alacritty config"
 cp .config/alacritty/alacritty.yaml ~/.config/alacritty/alacritty.yml
 
+echo "Updating wezterm config"
+cp .config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+
 echo "Updating images"
 mkdir -p ~/.config/images
 rsync -r .config/images ~/.config
