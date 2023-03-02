@@ -9,7 +9,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'morhetz/gruvbox'
-Plug 'srcery-colors/srcery-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/vimproc.vim'
@@ -59,18 +58,10 @@ let g:coc_global_extensions = [
 
 set termguicolors
 if $DARK_THEME == 1
-  " Dark colorscheme
   set background=dark
-
-  " colorscheme srcery
-  " let g:srcery_italic = 1
-
   colorscheme gruvbox
 else
-  " Light colorscheme
   set background=light
-
-  " autocmd vimenter * ++nested colorscheme solarized8
   colorscheme gruvbox
 endif
   

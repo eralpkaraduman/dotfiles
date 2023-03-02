@@ -71,24 +71,26 @@ antigen bundle lukechilds/zsh-better-npm-completion
 #antigen bundle Aloxaf/fzf-tab
 antigen apply
 
-export DARK_THEME=1 # 1 / 0
-
-if [ $DARK_THEME  -eq  1 ]
+# Based on https://github.com/pndurette/zsh-lux/blob/main/zsh-lux.plugin.zsh
+local dark_mode=$(osascript -l JavaScript -e \
+    "Application('System Events').appearancePreferences.darkMode.get()")
+if [[ "$dark_mode" == "true" ]]
   then 
+    export DARK_THEME=1
     tmux set-environment -g THEME 'dark'
     export FZF_DEFAULT_OPTS='
     --color dark
     '
     export BAT_THEME=OneHalfDark
-    #kitty +kitten themes --reload-in=all Afterglow
   else 
+    export DARK_THEME=0
     tmux set-environment -g THEME 'light'
     export FZF_DEFAULT_OPTS='
     --color light
     '
     export BAT_THEME=OneHalfLight
-    #kitty +kitten themes --reload-in=all Solarized Light 
 fi
+tmux source-file ~/.tmux.conf # so that tmux syncs the dark mode state
 
 # Pure Prompt theme
 ZSH_THEME="" #Disalbe oh-my-zsh themes
