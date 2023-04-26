@@ -28,8 +28,10 @@ Plug 'jparise/vim-graphql'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'github/copilot.vim'
+Plug 'digitaltoad/vim-pug'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 "Coc plugins
@@ -46,6 +48,8 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-deno',
 \ 'coc-sourcekit',
+\ 'coc-css',
+\ '@yaegassy/coc-tailwindcss3',
 \ ]
 
 " Used to use these but :healthcheck showed errors. Then it was fine when I
@@ -57,13 +61,20 @@ let g:coc_global_extensions = [
 " let g:copilot_node_command = '~/.nvm/versions/node/v16.15.1/bin/node'
 
 set termguicolors
-if $DARK_THEME == 1
-  set background=dark
-  colorscheme gruvbox
-else
-  set background=light
-  colorscheme gruvbox
-endif
+let g:gruvbox_contrast_light = "hard"
+let g:gruvbox_contrast_dark = "hard"
+
+colorscheme gruvbox
+command! UpdateTheme call UpdateBackground()
+function! UpdateBackground()
+  let $DARK_THEME = system("defaults read -g AppleInterfaceStyle 2>/dev/null") ==# "Dark\n" ? 1 : 0
+  if $DARK_THEME == 1
+    set background=dark
+  else
+    set background=light
+  endif
+endfunction
+autocmd VimEnter * call UpdateBackground()
   
 syntax on
 set incsearch
@@ -128,7 +139,7 @@ noremap x "+x
 " nmap <leader>gs :vertical G<CR>
 nmap <leader>gs :belowright G<CR>
 nmap <leader>gl :Gclog<CR>
-nmap <leader>gf :Gclog -- %<CR>
+nmap <leader>gf :0Gclog<CR>
 nmap <leader>gd :Gvdiffsplit<CR>
 nmap <leader>gb :Git blame<CR>
 " nmap <leader>gl :diffget //3<CR>
@@ -143,6 +154,15 @@ nnoremap <leader>k <C-w><C-k>
 " Have j and k navigate visual lines rather than logical ones
 nmap j gj
 nmap k gk
+
+" tmux navigator config
+let g:tmux_navigator_no_mappings = 1
+
+noremap <silent> <leader>h :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> <leader>j :<C-U>TmuxNavigateDown<cr>
+noremap <silent> <leader>k :<C-U>TmuxNavigateUp<cr>
+noremap <silent> <leader>l :<C-U>TmuxNavigateRight<cr>
+" noremap <silent> {Previous-Mapping} :<C-U>TmuxNavigatePrevious<cr>
 
 " fzf.vim's GFiles but with cwd (for monorepos, see: https://github.com/junegunn/fzf.vim/pull/1160#issuecomment-801601546)
 command! -bang -nargs=? GFilesCwd
@@ -376,8 +396,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-"xmap <leader>f  <Plug>(coc-format-selected)
-"nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
 autocmd!

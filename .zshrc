@@ -172,3 +172,13 @@ alias brew="brew_arm64"
 
 # private stuff
 source ~/.zshrc-private
+
+# pnpm
+export PNPM_HOME="/Users/eralp/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/eralp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/eralp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/eralp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/eralp/google-cloud-sdk/completion.zsh.inc'; fi
