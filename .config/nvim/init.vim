@@ -32,6 +32,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'nvim-treesitter/nvim-treesitter-context'
 call plug#end()
 
 "Coc plugins
@@ -60,6 +61,7 @@ let g:coc_global_extensions = [
 " Copilot
 " let g:copilot_node_command = '~/.nvm/versions/node/v16.15.1/bin/node'
 
+" Theme Stuff
 set termguicolors
 let g:gruvbox_contrast_light = "hard"
 let g:gruvbox_contrast_dark = "hard"
@@ -154,6 +156,12 @@ nnoremap <leader>k <C-w><C-k>
 " Have j and k navigate visual lines rather than logical ones
 nmap j gj
 nmap k gk
+
+" Resize splits
+nnoremap <silent> <A-L> :exe "vertical resize +1"<CR>
+nnoremap <silent> <A-H> :exe "vertical resize -1"<CR>
+nnoremap <silent> <A-J> :exe "resize +1"<CR>
+nnoremap <silent> <A-K> :exe "resize -1"<CR>
 
 " tmux navigator config
 let g:tmux_navigator_no_mappings = 1
@@ -499,4 +507,3 @@ command! -nargs=* T  vsplit | terminal <args>
 command! -nargs=* VT belowright split | terminal <args>
 nnoremap <leader>vt :T<return>
 nnoremap <leader>t :VT<return>
-
