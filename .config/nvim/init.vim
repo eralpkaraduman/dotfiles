@@ -244,6 +244,20 @@ nnoremap <Leader>w :w<cr>
 " Clear search highlights
 nnoremap <esc><esc> :noh<return>
 
+" Exit telescope with esc
+lua << EOF
+local actions = require("telescope.actions")
+require("telescope").setup({
+    defaults = {
+        mappings = {
+            i = {
+                ["<esc>"] = actions.close,
+            },
+        },
+    },
+})
+EOF
+
 " Statusline
 set laststatus=2
 let spacing=' '
