@@ -33,6 +33,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 call plug#end()
 
 "Coc plugins
@@ -172,25 +174,18 @@ noremap <silent> <leader>k :<C-U>TmuxNavigateUp<cr>
 noremap <silent> <leader>l :<C-U>TmuxNavigateRight<cr>
 " noremap <silent> {Previous-Mapping} :<C-U>TmuxNavigatePrevious<cr>
 
-" fzf.vim's GFiles but with cwd (for monorepos, see: https://github.com/junegunn/fzf.vim/pull/1160#issuecomment-801601546)
-command! -bang -nargs=? GFilesCwd
-\ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(<q-args> == '?' ? { 'dir': getcwd(), 'placeholder': '' } : { 'dir': getcwd() }), <bang>0)
-
-nmap <C-p> :GFilesCwd --exclude-standard --others --cached<CR>
-nmap <C-e> :Buffers<CR>
-
 " For scss files
 autocmd FileType scss setl iskeyword+=@-@
 
 "no more arrow keys
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
+" inoremap  <Up>     <NOP>
+" inoremap  <Down>   <NOP>
+" inoremap  <Left>   <NOP>
+" inoremap  <Right>  <NOP>
+" noremap   <Up>     <NOP>
+" noremap   <Down>   <NOP>
+" noremap   <Left>   <NOP>
+" noremap   <Right>  <NOP>
 
 set softtabstop=4
 set tabstop=4
@@ -264,21 +259,9 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Search Stuff
 " Install bat for syntax highlighted previews: https://github.com/sharkdp/bat#installation
 
-" function! RipgrepFzfAdvanced(query, fullscreen)
-"   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-"   let initial_command = printf(command_fmt, shellescape(a:query))
-"   let reload_command = printf(command_fmt, '{q}')
-"   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-"   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-" endfunction
-" command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-" nnoremap <silent> <C-f> :RG<cr>
-
-command! -bang -nargs=* RipgrepFzf
-\ call fzf#vim#grep(
-\   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
-\   fzf#vim#with_preview(), <bang>0)
-nnoremap <silent> <C-f> :RipgrepFzf<cr>
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-f> <cmd>Telescope live_grep<cr>
+nnoremap <C-e> <cmd>Telescope buffers<cr>
 
 " coc.nvim sample configuration below based on: https://github.com/neoclide/coc.nvim
 
@@ -384,11 +367,11 @@ endfunction
 nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " Show documentation automatically
-"function! ShowDocIfNoDiagnostic(timer_id)
-"  if (coc#float#has_scroll() == 0 && coc#status() != '')
-"    silent call CocActionAsync('doHover')
-"  endif
-"endfunction
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_scroll() == 0 && coc#status() != '')
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
 "
 "function! s:show_hover_doc()
 "  call timer_start(500, 'ShowDocIfNoDiagnostic')
