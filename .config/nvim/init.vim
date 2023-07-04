@@ -27,7 +27,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'jparise/vim-graphql'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -35,6 +35,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'fannheyward/telescope-coc.nvim'
 call plug#end()
 
 "Coc plugins
@@ -60,6 +61,7 @@ let g:coc_global_extensions = [
 " them anyways
 " let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 " let g:coc_node_path = '~/.nvm/versions/node/v16.15.1/bin/node'
+
 " Copilot
 " let g:copilot_node_command = '~/.nvm/versions/node/v16.15.1/bin/node'
 
@@ -98,7 +100,7 @@ set expandtab
 set smartindent
 set ignorecase
 set smartcase
-set signcolumn=no
+set signcolumn=yes
 " set signcolumn=yes
 " set colorcolumn=100
 "set notimeout
@@ -244,9 +246,10 @@ nnoremap <Leader>w :w<cr>
 " Clear search highlights
 nnoremap <esc><esc> :noh<return>
 
-" Exit telescope with esc
+" Telescope stuff
 lua << EOF
 local actions = require("telescope.actions")
+
 require("telescope").setup({
     defaults = {
         mappings = {
@@ -255,7 +258,15 @@ require("telescope").setup({
             },
         },
     },
+    extensions = {
+        coc = {
+            theme = 'ivy',
+            prefer_locations = true,
+        }
+    },
 })
+
+require('telescope').load_extension('coc')
 EOF
 
 " Statusline
@@ -276,6 +287,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope live_grep<cr>
 nnoremap <C-e> <cmd>Telescope buffers<cr>
+nnoremap <leader>r :Telescope resume<CR>
+
 
 " coc.nvim sample configuration below based on: https://github.com/neoclide/coc.nvim
 
@@ -364,7 +377,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
+" Show documentation on K (based on: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -376,23 +389,6 @@ else
   execute '!' . &keywordprg . " " . expand('<cword>')
 endif
 endfunction
-
-" Show documentation on K (based on: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim )
-nnoremap <silent> K :call CocAction('doHover')<CR>
-
-" Show documentation automatically
-function! ShowDocIfNoDiagnostic(timer_id)
-  if (coc#float#has_scroll() == 0 && coc#status() != '')
-    silent call CocActionAsync('doHover')
-  endif
-endfunction
-"
-"function! s:show_hover_doc()
-"  call timer_start(500, 'ShowDocIfNoDiagnostic')
-"endfunction
-"
-"autocmd CursorHoldI * :call <SID>show_hover_doc()
-"autocmd CursorHold * :call <SID>show_hover_doc()
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -445,8 +441,9 @@ omap ac <Plug>(coc-classobj-a)
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+" nmap <silent> <C-s> <Plug>(coc-range-select)
+" xmap <silent> <C-s> <Plug>(coc-range-select)
+
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -466,7 +463,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
+nnoremap <Leader>d <cmd>Telescope coc workspace_diagnostics<cr>
+
 " Manage extensions.
 " nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
