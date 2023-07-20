@@ -36,6 +36,7 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'fannheyward/telescope-coc.nvim'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 "Coc plugins
@@ -64,13 +65,20 @@ let g:coc_global_extensions = [
 
 " Copilot
 " let g:copilot_node_command = '~/.nvm/versions/node/v16.15.1/bin/node'
+let g:copilot_filetypes = {
+    \ '*': v:false,
+    \ 'typescript': v:true,
+    \ 'typescriptreact': v:true,
+    \ 'javascript': v:true,
+\ }
 
 " Theme Stuff
 set termguicolors
 let g:gruvbox_contrast_light = "hard"
 let g:gruvbox_contrast_dark = "hard"
 
-colorscheme gruvbox
+set t_Co=256   " This is may or may not needed (for papercolor).
+colorscheme PaperColor
 command! UpdateTheme call UpdateBackground()
 function! UpdateBackground()
   let $DARK_THEME = system("defaults read -g AppleInterfaceStyle 2>/dev/null") ==# "Dark\n" ? 1 : 0
@@ -270,10 +278,18 @@ require('telescope').load_extension('coc')
 EOF
 
 " Statusline
+function! CondensedPath() abort
+    if expand(':h') == '/'
+        return '/' . expand('%:t')
+    else
+        return pathshorten(expand('%:h')) . '/' . expand('%:t')
+    endif
+endfunction
+
 set laststatus=2
 let spacing=' '
 set statusline=%{spacing}
-set statusline+=%{pathshorten(expand('%:f'))}
+set statusline+=%{CondensedPath()}
 set statusline+=%{spacing}
 set statusline+=%{get(g:,'coc_git_status','?')}
 
@@ -284,8 +300,10 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Search Stuff
 " Install bat for syntax highlighted previews: https://github.com/sharkdp/bat#installation
 
+" nnoremap <C-p> <cmd>Telescope live_grep<cr>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
-nnoremap <C-f> <cmd>Telescope live_grep<cr>
+nnoremap <C-f> <cmd>Telescope grep_string<cr>
+nnoremap <C-s> <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <C-e> <cmd>Telescope buffers<cr>
 nnoremap <leader>r :Telescope resume<CR>
 
