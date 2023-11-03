@@ -40,7 +40,7 @@ echo "Install xclip"
 sudo apt install xclip
 
 # Set key repeat speed faster than maximum on match
-# defaults write -g InitialKeyRepeat -int 1634073490000
+# defaults write -g InitialKeyRepeat -int 17
 # defaults write -g KeyRepeat -int 1
 
 # Disable press and hold for special characters on mac
