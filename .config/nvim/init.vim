@@ -110,8 +110,8 @@ nnoremap <Leader>w :w<CR>
 nnoremap <esc><esc> :noh<CR>
 
 " Buffer Management Keybindings
-nnoremap <silent> <Leader>q :confirm bd<CR>
-nnoremap <silent> <Leader>Q :confirm bufdo bd<CR>
+nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>Q :bufdo bd<CR>
 
 " Telescope
 lua << EOF
@@ -178,3 +178,9 @@ nnoremap  <A-k> :m .-2<CR>==
 vnoremap  <A-j> :m '>+1<CR>gv=gv
 nnoremap  <A-j> :m .+1<CR>==
 vnoremap  <A-k> :m '<-2<CR>gv=gv
+
+" Hover Documentation
+nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
+
+" Go to References
+nnoremap <silent> gr :lua vim.lsp.buf.references()<CR>
