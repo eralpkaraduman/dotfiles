@@ -33,6 +33,8 @@ setopt pushdminus
 # Other
 setopt prompt_subst
 
+alias nvim="nvm use 20 >/dev/null && nvim"
+#
 # Visual Studio Code
 export REACT_EDITOR=nvim
 
@@ -110,26 +112,6 @@ export PATH=$PATH:$HOME/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ "$(uname 2> /dev/null)" = "Linux" ]; then
-  export PATH="$PATH:/Users/eralpkaraduman/Library/Python/3.8/bin"
-  
-  export PATH=$PATH:~/.local/bin
-  export PATH=$PATH:~/bin
-  [[ -s "/home/eralp/.gvm/scripts/gvm" ]] && source "/home/eralp/.gvm/scripts/gvm"
-
-
-  PATH="/home/eralp/perl5/bin${PATH:+:${PATH}}"; export PATH;
-  PERL5LIB="/home/eralp/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-  PERL_LOCAL_LIB_ROOT="/home/eralp/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-  PERL_MB_OPT="--install_base \"/home/eralp/perl5\""; export PERL_MB_OPT;
-  PERL_MM_OPT="INSTALL_BASE=/home/eralp/perl5"; export PERL_MM_OPT;
-  
-  # GOLANG
-  export PATH=$PATH:/usr/local/go/bin
-  export GOPATH=$HOME/go
-  export PATH=$PATH:$GOPATH/bin
-fi
-
 # x86 brew is here, tho I might have removed axbrew, line below could be obsolete
 export PATH="/usr/local/bin:$PATH"
 
@@ -177,8 +159,22 @@ source ~/.zshrc-private
 export PNPM_HOME="/Users/eralp/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+#
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+export PLAYDATE_SDK_PATH=/Users/eralp/Developer/PlaydateSDK
+export PATH=$PATH:$PLAYDATE_SDK_PATH/bin
+# bun completions
+[ -s "/Users/eralp/.bun/_bun" ] && source "/Users/eralp/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/eralp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/eralp/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/eralp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/eralp/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="/opt/homebrew/opt/python@3.10/libexec/bin:$PATH"

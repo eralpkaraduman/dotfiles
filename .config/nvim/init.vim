@@ -30,7 +30,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'github/copilot.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-lua/plenary.nvim'
@@ -61,10 +60,10 @@ let g:coc_global_extensions = [
 " commented them out. Paths are wrong on m1 macs maybe? But works fine without
 " them anyways
 " let g:node_host_prog = '/usr/local/bin/neovim-node-host'
-" let g:coc_node_path = '~/.nvm/versions/node/v16.15.1/bin/node'
+
+" let g:coc_node_path = '/Users/eralp/.nvm/versions/node/v20.13.1/bin/node'
 
 " Copilot
-" let g:copilot_node_command = '~/.nvm/versions/node/v16.15.1/bin/node'
 let g:copilot_filetypes = {
     \ '*': v:false,
     \ 'typescript': v:true,
@@ -77,8 +76,9 @@ set termguicolors
 let g:gruvbox_contrast_light = "hard"
 let g:gruvbox_contrast_dark = "hard"
 
-set t_Co=256   " This is may or may not needed (for papercolor).
-colorscheme PaperColor
+" set t_Co=256   " This is may or may not needed (for papercolor).
+" colorscheme PaperColor
+colorscheme gruvbox
 command! UpdateTheme call UpdateBackground()
 function! UpdateBackground()
   let $DARK_THEME = system("defaults read -g AppleInterfaceStyle 2>/dev/null") ==# "Dark\n" ? 1 : 0
@@ -221,19 +221,6 @@ ensure_installed = {
 }
 EOF
 
-" indent-blankline
-lua << EOF
-vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
-vim.opt.listchars:append "eol:↴"
-
-require("indent_blankline").setup {
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
-}
-EOF
-
 lua require'colorizer'.setup()
 
 autocmd BufRead,BufEnter *.astro set filetype=astro
@@ -298,11 +285,11 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Search Stuff
-" Install bat for syntax highlighted previews: https://github.com/sharkdp/bat#installation
+" Install bat for syntax highlighted previews: https://github.com/sharkdp/bat#installation (bat not needed with telescope anymore)
 
-" nnoremap <C-p> <cmd>Telescope live_grep<cr>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
-nnoremap <C-f> <cmd>Telescope grep_string<cr>
+nnoremap <C-f> <cmd>Telescope live_grep<cr>
+" nnoremap <C-f> <cmd>Telescope grep_string<cr>
 nnoremap <C-s> <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <C-e> <cmd>Telescope buffers<cr>
 nnoremap <leader>r :Telescope resume<CR>
