@@ -62,6 +62,8 @@ lspconfig.ts_ls.setup({
 })
 EOF
 
+autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
+
 " General Neovim Settings
 syntax on
 set termguicolors
@@ -90,6 +92,10 @@ set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Show Invisible Characters
+set list
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
 
 " Theme Settings
 colorscheme gruvbox
