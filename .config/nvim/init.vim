@@ -36,6 +36,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'fannheyward/telescope-coc.nvim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'neovim/nvim-lspconfig' " Added for LSP configuration
+Plug 'fedepujol/move.nvim'
 call plug#end()
 
 " Treesitter Configuration
@@ -190,3 +191,51 @@ nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 
 " Go to References
 nnoremap <silent> gr :lua vim.lsp.buf.references()<CR>
+
+" Go to Definition
+nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
+
+" move.nvim
+" add ghostty setting: macos-option-as-alt = true
+lua << EOF
+require('move').setup({})
+EOF
+
+" Normal-mode move.nvim keybindings
+nnoremap <silent> <A-j> :MoveLine(1)<CR>
+nnoremap <silent> <A-k> :MoveLine(-1)<CR>
+
+" Visual-mode move.nvim keybindings
+vnoremap <silent> <A-j> :MoveBlock(1)<CR>
+vnoremap <silent> <A-k> :MoveBlock(-1)<CR>
+
+" Map <Leader>a to show code actions
+nnoremap <silent> <Leader>a :lua vim.lsp.buf.code_action()<CR>
+vnoremap <silent> <Leader>a :lua vim.lsp.buf.range_code_action()<CR>
+
+" Rename
+nnoremap <silent> <leader>r :lua vim.lsp.buf.rename()<CR>
+
+" Use Tab to navigate and accept coc.nvim suggestions
+inoremap <silent><expr> <Tab> 
+      \ pumvisible() ? coc#pum#next(1) : 
+      \ (copilot#Accept("") ==# "" ? "\<Tab>" : copilot#Accept(""))
+
+" Use Shift-Tab to navigate up the completion menu
+inoremap <silent><expr> <S-Tab> pumvisible() ? coc#pum#prev(1) : "\<Tab>"
+
+" Use Enter to confirm the selected completion from coc.nvim
+inoremap <silent><expr> <CR> pumvisible() ? coc#pum#confirm() : "\<CR>"
+
+" Disable Copilot's default Tab mapping to avoid conflicts
+let g:copilot_no_tab_map = v:true
+inoremap <silent><expr> <S-CR> copilot#Accept("")
+
+" Move between splits using <leader>h/j/k/l
+nnoremap <silent> <leader>h <C-w>h
+nnoremap <silent> <leader>j <C-w>j
+nnoremap <silent> <leader>k <C-w>k
+nnoremap <silent> <leader>l <C-w>l
+
+" Keybinding to list diagnostics (problems) in the current file
+nnoremap <silent> <leader>d :CocList diagnostics<CR>
