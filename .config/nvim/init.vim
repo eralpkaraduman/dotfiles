@@ -239,3 +239,7 @@ nnoremap <silent> <leader>l <C-w>l
 
 " Keybinding to list diagnostics (problems) in the current file
 nnoremap <silent> <leader>d :CocList diagnostics<CR>
+
+" Keybinding to search and run CoC commands
+nnoremap <silent> <leader>c :CocCommand<CR>
+
