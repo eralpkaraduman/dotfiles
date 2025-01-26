@@ -3,6 +3,8 @@
 # History
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
 
+export COLORTERM=truecolor
+
 HISTSIZE=50000
 SAVEHIST=10000
 setopt extended_history
