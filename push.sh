@@ -23,7 +23,7 @@ echo "Updating ideavim config"
 cp ~/.ideavimrc .
 
 echo "Updating obsidian config"
-cp ~/Documents/Obsidian\ Vault/obsidian.vimrc .
+cp ~/Documents/Obsidian Vault/obsidian.vimrc.md .
 
 echo "Updating alacritty config"
 cp ~/.config/alacritty/alacritty.yml .config/alacritty/alacritty.yaml
