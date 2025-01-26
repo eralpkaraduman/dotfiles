@@ -35,6 +35,9 @@ cp .config/alacritty/alacritty.yaml ~/.config/alacritty/alacritty.yml
 echo "Updating wezterm config"
 cp .config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 
+echo "Updating ghostty config"
+cp .config/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
+
 echo "Updating images"
 mkdir -p ~/.config/images
 rsync -r .config/images ~/.config

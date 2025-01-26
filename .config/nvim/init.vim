@@ -39,6 +39,25 @@ Plug 'neovim/nvim-lspconfig' " Added for LSP configuration
 Plug 'fedepujol/move.nvim'
 call plug#end()
 
+"Coc plugins
+let g:coc_global_extensions = [
+\ 'coc-pairs',
+\ 'coc-highlight',
+\ 'coc-git',
+\ 'coc-eslint',
+\ 'coc-lists',
+\ 'coc-snippets',
+\ 'coc-spell-checker',
+\ 'coc-prettier',
+\ 'coc-lua',
+\ 'coc-tsserver',
+\ 'coc-css',
+\ 'coc-html',
+\ 'coc-graphql',
+\ 'coc-pyright',
+\ '@yaegassy/coc-tailwindcss3',
+\ ]
+
 " Treesitter Configuration
 lua << EOF
 require'nvim-treesitter.configs'.setup {
