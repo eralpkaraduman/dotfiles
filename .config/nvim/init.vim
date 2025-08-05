@@ -64,7 +64,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "tsx", "typescript", "json", "javascript",
     "astro", "css", "lua", "java", "jsdoc", 
-    "python", "yaml", "swift"
+    "python", "yaml", "swift", "html",
   },
   highlight = {
     enable = true,
@@ -75,11 +75,12 @@ EOF
 " LSP Semantic Token Configuration
 lua << EOF
 local lspconfig = require('lspconfig')
-lspconfig.ts_ls.setup({
-  cmd = { "typescript-language-server", "--stdio" },
-  filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-  root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
-})
+-- Disable tsserver in LSP since we're using coc-tsserver
+-- lspconfig.ts_ls.setup({
+--   cmd = { "typescript-language-server", "--stdio" },
+--   filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+--   root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+-- })
 EOF
 
 autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
@@ -206,13 +207,13 @@ nnoremap  <A-j> :m .+1<CR>==
 vnoremap  <A-k> :m '<-2<CR>gv=gv
 
 " Hover Documentation
-nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
+nmap <silent> K :call CocAction('doHover')<CR>
 
 " Go to References
-nnoremap <silent> gr :lua vim.lsp.buf.references()<CR>
+nmap <silent> gr <Plug>(coc-references)
 
 " Go to Definition
-nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
+nmap <silent> gd <Plug>(coc-definition)
 
 " move.nvim
 " add ghostty setting: macos-option-as-alt = true
@@ -229,16 +230,26 @@ vnoremap <silent> <A-j> :MoveBlock(1)<CR>
 vnoremap <silent> <A-k> :MoveBlock(-1)<CR>
 
 " Map <Leader>a to show code actions
-nnoremap <silent> <Leader>a :lua vim.lsp.buf.code_action()<CR>
-vnoremap <silent> <Leader>a :lua vim.lsp.buf.range_code_action()<CR>
+nmap <silent> <leader>a <Plug>(coc-codeaction-cursor)
+xmap <silent> <leader>a <Plug>(coc-codeaction-selected)
 
 " Rename
-nnoremap <silent> <leader>r :lua vim.lsp.buf.rename()<CR>
+nmap <silent> <leader>rn <Plug>(coc-rename)
 
 " Use Tab to navigate and accept coc.nvim suggestions
-inoremap <silent><expr> <Tab> 
-      \ pumvisible() ? coc#pum#next(1) : 
-      \ (copilot#Accept("") ==# "" ? "\<Tab>" : copilot#Accept(""))
+" Make sure completion is triggered
+inoremap <silent><expr> <C-Space> coc#refresh()
+
+" Use tab for trigger completion with characters ahead and navigate
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Use Shift-Tab to navigate up the completion menu
 inoremap <silent><expr> <S-Tab> pumvisible() ? coc#pum#prev(1) : "\<Tab>"
@@ -261,4 +272,8 @@ nnoremap <silent> <leader>d :CocList diagnostics<CR>
 
 " Keybinding to search and run CoC commands
 nnoremap <silent> <leader>c :CocCommand<CR>
+
+" Add these CoC-specific keybindings for LSP features
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
 

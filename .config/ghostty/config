@@ -1,1 +1,3 @@
 macos-option-as-alt = true
+font-family = "Maple Mono NF"
+term = xterm-256color

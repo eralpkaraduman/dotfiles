@@ -180,3 +180,6 @@ if [ -f '/Users/eralp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/eralp/goo
 if [ -f '/Users/eralp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/eralp/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="/opt/homebrew/opt/python@3.10/libexec/bin:$PATH"
+export PATH="/opt/homebrew/opt/go@1.21/bin:$PATH"
+
+export GEMINI_API_KEY="AIzaSyBx1EYao5xMLV8qga0I_dDmrepcba0YulM"
